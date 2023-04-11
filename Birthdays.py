@@ -2,8 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-#URL = input("\nInput announcements url:\n")
-URL = "https://www.smore.com/gd9uc"
+URL = input("\nInput announcements url:\n")
+if URL == "":
+  URL = "https://www.smore.com/6rj5s"
 
 def collectWebsite(Url):
   page = requests.get(Url) 
@@ -18,8 +19,22 @@ def formatWebsitePeople(input):
     statement = re.sub(r"( and)", ",", item)
     if str(re.match(r"(This week we celebrate...)", statement)) == "None":
       listOfPeople.append(statement)
-      print(statement)
+      #print(statement)
   return(listOfPeople)
+
+def splitPeople(input):
+  peoplesList = []
+  outList = []
+  for day in input:
+    peoplesList = []
+    for person in re.split(r"(,)", day):
+      if person != ",":
+        peoplesList.append(person)
+        # print(person)
+    outList.append(peoplesList)
+    # print("\n--Next day--\n")
+  return outList
+
 
 def formatWebsiteDate(input):
   return re.search(r"\d+.\d+", input).group() # type: ignore
@@ -27,5 +42,8 @@ def formatWebsiteDate(input):
 data = collectWebsite(URL)
 print()
 print(formatWebsiteDate(data))
-formatWebsitePeople(data)
+for a in splitPeople(formatWebsitePeople(data)):
+  print(a)
+# for dayPeople in formatWebsitePeople(data):
+  # print(dayPeople)
 print()
