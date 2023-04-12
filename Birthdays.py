@@ -2,15 +2,22 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
+from datetime import date
+import os.path
 
 login = open("Login", "r").read().splitlines()
 
-URL = input("\nInput announcements url:\n")
-if URL == "":
-    URL = "https://www.smore.com/6rj5s"
+URL = ""
+if os.path.exists("AnnouncementsSave") == False:
+    URL = input("\nInput announcements url:\n")
+    if URL == "":  
+        URL = "https://www.smore.com/6rj5s"
 
 
 def collectWebsite(Url):
+    if os.path.exists("AnnouncementsSave") == True:
+        print("Loading save file...")
+        return open("AnnouncementsSave", "r").read()
     page = requests.get(Url)
     soup = BeautifulSoup(page.content, "html.parser")
     results = soup.find(id="w-4074839830")
@@ -24,7 +31,6 @@ def formatWebsitePeople(input):
         statement = re.sub(r"( and)", ",", item)
         if str(re.match(r"(This week we celebrate...)", statement)) == "None":
             listOfPeople.append(statement)
-            # print(statement)
     return (listOfPeople)
 
 
@@ -36,9 +42,7 @@ def splitPeople(input):
         for person in re.split(r"(,)", day):
             if person != ",":
                 peoplesList.append(person)
-                # print(person)
         outList.append(peoplesList)
-        # print("\n--Next day--\n")
     return outList
 
 
@@ -46,23 +50,28 @@ def formatWebsiteDate(input):
     return re.search(r"\d+.\d+", input).group()  # type: ignore
 
 
-def findTodayPeople(date, peoplesList):
-    dateSplit = re.split(r"(/)", date)
-    startDay = date(2023, dateSplit[0], dateSplit[1])
-    #datetime.striptime()
+def findTodayPeople(dateIn, peoplesList):
+    today = date.today()
+    thisYear = today.strftime("%Y")
+    dateFormat = "%m/%d/%Y"
+    dateSplit = re.split(r"(/)", dateIn)
+    startDay = datetime.strptime(f'{dateSplit[0]}/{dateSplit[2]}/{date.today().year}', dateFormat)
+    today = datetime.strptime(str(today), "%Y-%m-%d")
+    daysSinceStart = (today - startDay).days
+    return(f"{peoplesList[daysSinceStart]}")
+
+
+def getPeople():
+    return [findTodayPeople(formatWebsiteDate(data), formatWebsitePeople(data))]
+
+def convertToEmails(input):
+    print()
 
 
 def emailPeople(message, people):
     username = login[0]
     password = login[1]
 
-
+## Where the code actually runs
 data = collectWebsite(URL)
-print()
-print(formatWebsiteDate(data))
-for a in splitPeople(formatWebsitePeople(data)):
-    print(a)
-# for dayPeople in formatWebsitePeople(data):
-    # print(dayPeople)
-print()
-print(f"User: {login[0]} Pass: {login[1]}")
+print(getPeople())
