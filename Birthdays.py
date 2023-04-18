@@ -1,9 +1,6 @@
-import requests
+import requests, re, os.path, smtplib, ssl, sys
 from bs4 import BeautifulSoup
-import re
-from datetime import datetime
-from datetime import date
-import os.path
+from datetime import datetime, date
 
 login = open("Login", "r").read().splitlines()
 
@@ -11,7 +8,8 @@ URL = ""
 if os.path.exists("AnnouncementsSave") == False:
     URL = input("\nInput announcements url:\n")
     if URL == "":  
-        URL = "https://www.smore.com/6rj5s"
+        URL = "https://www.smore.com/vwf04"
+    print()
 
 
 def collectWebsite(Url):
@@ -31,7 +29,7 @@ def formatWebsitePeople(input):
         statement = re.sub(r"( and)", ",", item)
         if str(re.match(r"(This week we celebrate...)", statement)) == "None":
             listOfPeople.append(statement)
-    return (listOfPeople)
+    return listOfPeople
 
 
 def splitPeople(input):
@@ -51,27 +49,48 @@ def formatWebsiteDate(input):
 
 
 def findTodayPeople(dateIn, peoplesList):
-    today = date.today()
-    thisYear = today.strftime("%Y")
+    today = datetime.today()
+    # print(today)
+    thisYear = today.year
     dateFormat = "%m/%d/%Y"
     dateSplit = re.split(r"(/)", dateIn)
     startDay = datetime.strptime(f'{dateSplit[0]}/{dateSplit[2]}/{date.today().year}', dateFormat)
-    today = datetime.strptime(str(today), "%Y-%m-%d")
     daysSinceStart = (today - startDay).days
-    return(f"{peoplesList[daysSinceStart]}")
+    # print(f"today{today.day}, start{startDay.day}, {daysSinceStart}")
+    return(peoplesList[daysSinceStart])
 
 
 def getPeople():
-    return [findTodayPeople(formatWebsiteDate(data), formatWebsitePeople(data))]
+    return findTodayPeople(formatWebsiteDate(data), splitPeople(formatWebsitePeople(data)))
 
-def convertToEmails(input):
-    print()
+def convertToEmails(inputE):
+    # print(re.split(r"(, )", str().join(str(input))))
+    emailsList = []
+    for person in inputE:
+        if re.match(r"(Mr)", str(person)) != "None" and re.match(r"(Mrs)", str(person)) != "None" and re.match(r"(Ms)", str(person)) != "None":
+            person = str(person).replace(" ", "").lower() + "@danville.k12.in.us"
+            emailsList.append(person)
+    return(emailsList)
 
 
-def emailPeople(message, people):
+def emailPeople(people):
+    if input(f"Sending to: {people}\n Press enter to continue") != "":
+        sys.exit()
     username = login[0]
     password = login[1]
+    port = 587  # For starttl
+    smtp_server = "smtp.gmail.com"
+    sender_email = username
+    receiver_email = people
+    message = """Subject: To you
+Happy birthday!
+    """
+    context = ssl.create_default_context()
+    with smtplib.SMTP(smtp_server, port) as server:
+        server.starttls(context=context)
+        server.login(sender_email, password)
+        server.sendmail(sender_email, receiver_email, message)
 
 ## Where the code actually runs
 data = collectWebsite(URL)
-print(getPeople())
+emailPeople(convertToEmails(getPeople()))
