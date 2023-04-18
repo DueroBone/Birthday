@@ -1,4 +1,4 @@
-import requests, re, os.path, smtplib, ssl, sys
+import requests, re, os.path, smtplib, ssl, sys, validators
 from bs4 import BeautifulSoup
 from datetime import datetime, date
 
@@ -6,10 +6,10 @@ login = open("Login", "r").read().splitlines()
 
 URL = ""
 if os.path.exists("AnnouncementsSave") == False:
-    URL = input("\nInput announcements url:\n")
-    if URL == "":  
-        URL = "https://www.smore.com/vwf04"
-    print()
+    URL = input("Input announcements url:  ")
+    if URL == "" or validators.url(URL) != True or re.match(r"(smore)", URL) == []:
+        print(f"Improper input detected!! {URL}\nTerminating...")
+        sys.exit()
 
 
 def collectWebsite(Url):
@@ -17,9 +17,11 @@ def collectWebsite(Url):
         print("Loading save file...")
         return open("AnnouncementsSave", "r").read()
     page = requests.get(Url)
+    print("Working", end="")
     soup = BeautifulSoup(page.content, "html.parser")
     results = soup.find(id="w-4074839830")
     job_elements = results.find_all("td", class_="gallery-content-cell")  # type: ignore
+    print(".", end="")
     return job_elements[0].text.strip()
 
 
@@ -29,6 +31,7 @@ def formatWebsitePeople(input):
         statement = re.sub(r"( and)", ",", item)
         if str(re.match(r"(This week we celebrate...)", statement)) == "None":
             listOfPeople.append(statement)
+    print(".", end="")
     return listOfPeople
 
 
@@ -41,6 +44,7 @@ def splitPeople(input):
             if person != ",":
                 peoplesList.append(person)
         outList.append(peoplesList)
+    print(".", end="")
     return outList
 
 
@@ -56,11 +60,11 @@ def findTodayPeople(dateIn, peoplesList):
     dateSplit = re.split(r"(/)", dateIn)
     startDay = datetime.strptime(f'{dateSplit[0]}/{dateSplit[2]}/{date.today().year}', dateFormat)
     daysSinceStart = (today - startDay).days
-    # print(f"today{today.day}, start{startDay.day}, {daysSinceStart}")
+    print(".", end="")
     return(peoplesList[daysSinceStart])
 
 
-def getPeople():
+def getPeopleWeb():
     return findTodayPeople(formatWebsiteDate(data), splitPeople(formatWebsitePeople(data)))
 
 def convertToEmails(inputE):
@@ -70,11 +74,12 @@ def convertToEmails(inputE):
         if re.match(r"(Mr)", str(person)) != "None" and re.match(r"(Mrs)", str(person)) != "None" and re.match(r"(Ms)", str(person)) != "None":
             person = str(person).replace(" ", "").lower() + "@danville.k12.in.us"
             emailsList.append(person)
-    return(emailsList)
+    print(".", end="")
+    return emailsList
 
 
 def emailPeople(people):
-    if input(f"Sending to: {people}\n Press enter to continue") != "":
+    if input(f"\nSending to: {people}\n Press enter to continue") != "":
         sys.exit()
     username = login[0]
     password = login[1]
@@ -93,4 +98,4 @@ Happy birthday!
 
 ## Where the code actually runs
 data = collectWebsite(URL)
-emailPeople(convertToEmails(getPeople()))
+emailPeople(convertToEmails(getPeopleWeb()))
