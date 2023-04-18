@@ -4,4 +4,5 @@ words = re.findall(r"\d+", words)
 list = []
 for item in words:
   list.append(int(item))
-print(sorted(list))
+list.sort()
+print(list)
