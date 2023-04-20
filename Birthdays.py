@@ -79,7 +79,7 @@ def convertToEmails(inputE):
 
 
 def emailPeople(people):
-    if input(f"\nSending to: {people}\n Press enter to continue") != "":
+    if input(f"\nSending to: {people}\nPress enter to continue") != "":
         sys.exit()
     username = login[0]
     password = login[1]

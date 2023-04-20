@@ -1,2 +1,3 @@
-pip install validators
-pip install bs4
+requests
+validators
+bs4
