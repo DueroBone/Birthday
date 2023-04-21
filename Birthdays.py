@@ -16,18 +16,19 @@ def Quit():
     sys.exit()
 
 
-URL = ""
-if os.path.exists("AnnouncementsSave") == False:
-    URL = input("Input announcements url:  ")
-    if URL == "" or validators.url(URL) != True or re.match(r"(smore)", URL) == []:
-        print(f"Improper input detected!! {URL}")
-        Quit()
-
-
-def collectWebsite(Url):
+def collectWebsite():
     if os.path.exists("AnnouncementsSave") == True:
-        print("Loading save file...")
-        return open("AnnouncementsSave", "r").read()
+        if input("Do you want to load the save? y/n     ") == "y":
+            print("Loading", end="")
+            return open("AnnouncementsSave", "r").read()
+        else:
+            print("Removing save file...")
+            os.remove("AnnouncementsSave")
+    if os.path.exists("AnnouncementsSave") == False:
+        Url = input("Input announcements url:  ")
+        if Url == "" or validators.url(Url) != True or re.match(r"(smore)", Url) == []:
+            print(f"Improper input detected!! {Url}")
+            Quit()
     page = requests.get(Url)
     print("Working", end="")
     soup = BeautifulSoup(page.content, "html.parser")
@@ -35,6 +36,10 @@ def collectWebsite(Url):
     job_elements = results.find_all(
         "td", class_="gallery-content-cell")  # type: ignore
     print(".", end="")
+
+    if os.path.exists("AnnouncementsSave") == False:
+        savefile = open("AnnouncementsSave", "w")
+        savefile.write(job_elements[0].text.strip())
     return job_elements[0].text.strip()
 
 
@@ -116,5 +121,5 @@ Happy birthday!
 
 
 # Where the code actually runs
-data = collectWebsite(URL)
+data = collectWebsite()
 emailPeople(convertToEmails(getPeopleWeb()))
