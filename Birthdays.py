@@ -80,7 +80,7 @@ def findTodayPeople(dateIn, peoplesList):
         f'{dateSplit[0]}/{dateSplit[2]}/{date.today().year}', dateFormat)
     daysSinceStart = (today - startDay).days
     print(".", end="")
-    return (peoplesList[daysSinceStart])
+    return peoplesList[daysSinceStart]
 
 
 def getPeopleWeb():
@@ -112,6 +112,12 @@ def emailPeople(people):
     smtp_server = "smtp.gmail.com"
     message = """Subject: To you
 Happy birthday!
+
+
+--
+Duel M. 
+10th grade
+DCHS
     """
     context = ssl.create_default_context()
     with smtplib.SMTP(smtp_server, port) as server:
