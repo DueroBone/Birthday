@@ -18,7 +18,7 @@ def Quit():
 
 def collectWebsite():
     if os.path.exists("AnnouncementsSave") == True:
-        if input("Do you want to load the save? y/n     ") == "y":
+        if input("Do you want to load the save? y/n     ").lower() == "y":
             print("Loading", end="")
             return open("AnnouncementsSave", "r").read()
         else:
