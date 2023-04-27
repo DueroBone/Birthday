@@ -2,4 +2,3 @@ requests
 validators
 bs4
 numpy
-random

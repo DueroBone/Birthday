@@ -1,5 +1,4 @@
-import numpy
-import random
+import numpy, random
 
 options = 100
 options = options - 1
