@@ -29,11 +29,11 @@ def collectWebsite():
         if Url == "" or validators.url(Url) != True or re.match(r"(smore)", Url) == []:
             print(f"Improper input detected!! {Url}")
             Quit()
-    page = requests.get(Url)
+    page = requests.get(Url) # type: ignore
     print("Working", end="")
     soup = BeautifulSoup(page.content, "html.parser")
     results = soup.find(id="w-4074839830")
-    job_elements = results.find_all(
+    job_elements = results.find_all( # type: ignore
         "td", class_="gallery-content-cell")  # type: ignore
     print(".", end="")
 
