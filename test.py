@@ -7,6 +7,7 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+import re
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
@@ -37,15 +38,17 @@ def main():
     try:
         # Call the Gmail API
         service = build('gmail', 'v1', credentials=creds)
-        results = service.users().labels().list(userId='me').execute()
-        labels = results.get('labels', [])
+        listOfEmails = service.users().messages().list(userId='me', labelIds='Label_4975069768004790062').execute()
+        # input(service.users().labels().list(userId='me').execute())
+        # print(results)
 
-        if not labels:
+        if not listOfEmails:
             print('No labels found.')
             return
-        print('Labels:')
-        for label in labels:
-            print(label['name'])
+        # print('Labels:')
+        for result in listOfEmails['messages']:
+            print(service.users().messages().get(userId='me', id=result['id']).execute())
+            print("\n============================\n")
 
     except HttpError as error:
         # TODO(developer) - Handle errors from gmail API.
