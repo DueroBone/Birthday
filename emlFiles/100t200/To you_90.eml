@@ -1,0 +1,113 @@
+Delivered-To: duelmood@danville.k12.in.us
+Received: by 2002:a05:7022:b9b:b0:46:dd64:2bf4 with SMTP id cy27csp1842482dlb;
+        Sun, 20 Nov 2022 18:26:27 -0800 (PST)
+X-Received: by 2002:a05:6a00:80f:b0:571:8794:e845 with SMTP id m15-20020a056a00080f00b005718794e845mr126311pfk.18.1668997586839;
+        Sun, 20 Nov 2022 18:26:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1668997586; cv=none;
+        d=google.com; s=arc-20160816;
+        b=GmE09Adeuaii4bD3rSjlsZAyA3AzPWD2ZkGw2BEDbim3ubBm/oP5N4YX0mg4HW9SrB
+         TtGiYphyv5KoKbQS/616H0kPgJH7PlXFJOEozZ7iA/zBUGYltNp5kGnlV+HAFC53cCvr
+         6m6hz0bgoBb2p2s0P5s+OoBJBhEJICbq1efF6rHKH9atj7vAVW0xrCi6WAMozEk3qVcr
+         5fxSVAKsZWRtEmYc+oJSOjncd4rJO7InecHU2IWANcv9YjdcQ1p9bczhXg/D6HmWbAJK
+         MIR1lCDbLBf9Tgzu/3abStWQy+u/N3Ri0MBA19gZIsCwwLXj4b+8aMWAyRuwEJ/krPLu
+         cjjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=FnQeYz8hUX8Ym8xSQRm/VIqLj9gvFRIeeOV9Grf8RzM=;
+        b=hQFKyxiz9zv1+KWEnyu3/a3IfUWQ/pLPxCvXZCAQ/0hexBtZXgThRMIXyJPt0l91sm
+         5FMzp/Tmqht36F23A1Za7vE2jPks6IRk3hu4BS1sGC4VWuBEWPwXAiZj8+gHyj84tSga
+         rOtP2ZIRTCvM/uOARI5WRTV7UUFRsm9bQi81fQa09WwOGbbA1Im8T7/hOAg2LUIGkGTg
+         h+OE9lZbguEJ9id3p3c+L0G8TWt/aBwx0enF/MI5c02joamp9hHCr7SciqEfqmVlFrOQ
+         QPPKBlBpQi1iZHhjkfIr0TptYiXZwU48BsKRKkPGmwZMS6OcBGjO3brV43V6y+lhVRAi
+         uviw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b="iDMOnP/k";
+       spf=pass (google.com: domain of colehacker@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=colehacker@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+Return-Path: <colehacker@danville.k12.in.us>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id y7-20020aa79427000000b00562fc782decsor4914945pfo.51.2022.11.20.18.26.26
+        for <duelmood@danville.k12.in.us>
+        (Google Transport Security);
+        Sun, 20 Nov 2022 18:26:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of colehacker@danville.k12.in.us designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b="iDMOnP/k";
+       spf=pass (google.com: domain of colehacker@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=colehacker@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=danville.k12.in.us; s=google;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=FnQeYz8hUX8Ym8xSQRm/VIqLj9gvFRIeeOV9Grf8RzM=;
+        b=iDMOnP/kYyEGbp1IHH+MvCZvV7xmAi/rEVkLXnI68ey6hPGWYmnhTzgz15r31U2o8p
+         Eo5n3qnZkPxPWMNK/C0WPHtYerR2aJITDriM01b+XDMtqzko/nLY2QsQmJEfcVdNr1D9
+         uTdjBx5GppnykZACMGLT7I3iNaqM/s/mUVLjQrw8LFObfRmFVMnWaG4g+P3ef00R0Vhd
+         lbOvvbVvbs4yjzzukq8YuAu1bDJ4zSWeJ2hvmkvurOnPJLIQTWTQ3hlkPLnieeaZ3z+l
+         iJO/GFpFkSA/qwZzigTp/baOGkTj3RrEIURSRl128uD3AC3E22ljiqHBhaM0/icn3phb
+         OSbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FnQeYz8hUX8Ym8xSQRm/VIqLj9gvFRIeeOV9Grf8RzM=;
+        b=mSZkCwcO1qTMKp9es1rD7NYLQ4ALWsrB6/WkPSvXMo1weebS9zIUubsCsgCRLgDJXu
+         8FO7RsThEKHORrYC0lccAJw9ukJ/Es4fL+FwHh3XUtWihVbOen90FIr/zFYammQfHbMA
+         D8sYfjyBLeGBN4HwMzaiC32AwBcEQ90V50lTHHx0pIY5OSZaWD4cpeHkQFFdmZaaPXQg
+         jCYEMmcRm8ctGzSrfoI5cME7PfV2UuoaK7CVQiv74NZEcUAVVVCRMA8SS0dPjFzRkBds
+         oZAl6OzOtB4PMmWxStexVMRK+NbkuXDskkHC5Be6qdwmCNYS+XV2EfmJUVssvnXkoxty
+         JhBA==
+X-Gm-Message-State: ANoB5pkGsK4Yd7s1ETMHIPxOZKHynjDD8apW3ECweU+61GGPceQoOmAd
+	lgqlHx9bsKG4B2Dt3Z/Rsojy9L6IMAV4ltQ/LoNhPykIwGGG3g==
+X-Google-Smtp-Source: AA0mqf5Z7EhdCmwO2BijuxK5VoJrCXLYgUaAL2Pp9644ONTdvNDM86ssI1XENht9WxZQBPF9QDtkeAXQYFIPBNMpc44=
+X-Received: by 2002:a62:e218:0:b0:572:30f2:af50 with SMTP id
+ a24-20020a62e218000000b0057230f2af50mr7714121pfi.24.1668997586072; Sun, 20
+ Nov 2022 18:26:26 -0800 (PST)
+MIME-Version: 1.0
+References: <CACB_P4Arn80XvV3kKaq+MZOoOHKmAa_c9bKnqz5Pj=9zCCf1Ng@mail.gmail.com>
+ <CAL4NGeUAmFxkG++kLC=ts16ZYJUmM0wODs5nksZUz5Psn119og@mail.gmail.com> <CACB_P4ALEfCVONC2uh_zg_dHeL6AYN2sRN3LBJXo7VBQYCRr4g@mail.gmail.com>
+In-Reply-To: <CACB_P4ALEfCVONC2uh_zg_dHeL6AYN2sRN3LBJXo7VBQYCRr4g@mail.gmail.com>
+From: Cole Hacker <colehacker@danville.k12.in.us>
+Date: Sun, 20 Nov 2022 21:26:15 -0500
+Message-ID: <CAL4NGeXD7HEqL70fQpODBgkcf9J7xcjeZU99L2+PnwuwEu3Rdw@mail.gmail.com>
+Subject: Re: To you
+To: Duel Mood <duelmood@danville.k12.in.us>
+Content-Type: multipart/alternative; boundary="0000000000003fe17805edf1c88e"
+
+--0000000000003fe17805edf1c88e
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Thanks, I will =F0=9F=98=82
+
+On Sun, Nov 20, 2022 at 9:25 PM Duel Mood <duelmood@danville.k12.in.us>
+wrote:
+
+> You=E2=80=99re welcome! Have a great day! (or what=E2=80=99s left of it)
+> --
+> Duel M.
+> 10th grade
+> DCHS
+>
+
+--0000000000003fe17805edf1c88e
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Thanks, I will =F0=9F=98=82</div><div><br><div class=3D"g=
+mail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Sun, Nov 20, 2022 at 9=
+:25 PM Duel Mood &lt;<a href=3D"mailto:duelmood@danville.k12.in.us">duelmoo=
+d@danville.k12.in.us</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quo=
+te" style=3D"margin:0px 0px 0px 0.8ex;border-left-width:1px;border-left-sty=
+le:solid;padding-left:1ex;border-left-color:rgb(204,204,204)"><div dir=3D"a=
+uto">You=E2=80=99re welcome! Have a great day! (or what=E2=80=99s left of i=
+t)</div>-- <br><div dir=3D"ltr" data-smartmail=3D"gmail_signature"><div dir=
+=3D"ltr"><font face=3D"comic sans ms, sans-serif" size=3D"1" style=3D"font-=
+family:&quot;comic sans ms&quot;,sans-serif;color:rgb(0,0,0)">Duel M.=C2=A0=
+</font><div><font size=3D"1" style=3D"color:rgb(0,0,0)">10th grade</font></=
+div><div><font size=3D"1" style=3D"color:rgb(0,0,0)">DCHS</font></div></div=
+></div>
+</blockquote></div></div>
+
+--0000000000003fe17805edf1c88e--

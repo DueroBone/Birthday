@@ -1,0 +1,146 @@
+Delivered-To: duelmood@danville.k12.in.us
+Received: by 2002:a05:7022:402:b0:45:8c09:2394 with SMTP id 2csp587310dlf;
+        Mon, 26 Sep 2022 05:59:59 -0700 (PDT)
+X-Received: by 2002:a05:651c:17a1:b0:26c:87c:c104 with SMTP id bn33-20020a05651c17a100b0026c087cc104mr7318398ljb.419.1664197199371;
+        Mon, 26 Sep 2022 05:59:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1664197199; cv=none;
+        d=google.com; s=arc-20160816;
+        b=U/lxn1DKut73tck9HkTu22wzZGvwAJSVzZh/XQ3JIgpSUtpRYedP8fdrUakCnD2gtj
+         9ij7jsFBtx6QpEGHUhMqf8jeG5spe5/aVevUSD10m1ZXvhSpFxta3lTe1hBTOraVoT4Z
+         o1RzIJi839vgtvfXGaH/rFIXk69WCEuJeG4CpQgCP96kLXYpIbiX+bIYxaGTrTUtLkOL
+         /cOdWX/rl8wD0ox7TEew3dCWL1KtX1ZXKPsxCJ3o3hkpXu1rJr0mg2H1IurpoYQEyR0M
+         0zcStRoSxxknzvIsGULxDzXI9ICfh7IGGVeZNv4QvKhSjIDcokfOVoeANtpJykMltY79
+         QUkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=T6CdN8Xdk1/okkA9yvE3QjCWJl8u7Tbq2ZTF0pLmqgc=;
+        b=CcSf3j2WyMPZapxGwfiJqwSaDiAQI46znuOmSTx9WgCLZgAWV9m/tiJdHu6aC0Qwj4
+         88CnOk+fJpV1vuFwS9inmtK3Le3103adSmPP2qPYaSVmEyFrbXAzDSTmDEvENjIu3xk6
+         g11evhRrdTRivjBJ4S+yXg52ZNV5YYuAsh5NDwxnfFjM3ZJLq0DPTueKltxS263Y2CXx
+         SRwKWpnYF3uWCia/QsRj4EVDCYRobMbFmERafKTeO1Y7NMmlFvHAOj7aYPhl3ygwVj6E
+         krKJJutOZHXD4q2WU4L21pfB8nlJHROXhzKjmcU+58IwFhABprgjfU0RRdVljrhbXcRs
+         3yQQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=RGWmmync;
+       spf=pass (google.com: domain of juliasimon@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=juliasimon@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+Return-Path: <juliasimon@danville.k12.in.us>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id j3-20020a056512028300b004946a0afa48sor3426391lfp.97.2022.09.26.05.59.59
+        for <duelmood@danville.k12.in.us>
+        (Google Transport Security);
+        Mon, 26 Sep 2022 05:59:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of juliasimon@danville.k12.in.us designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=RGWmmync;
+       spf=pass (google.com: domain of juliasimon@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=juliasimon@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=danville.k12.in.us; s=google;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date;
+        bh=T6CdN8Xdk1/okkA9yvE3QjCWJl8u7Tbq2ZTF0pLmqgc=;
+        b=RGWmmyncl7YfdSPIW7UMbLrtWsclOhRRDkaxJrmAkj3qnBqCORI1vK81zDxhjkGhsq
+         JGZhIYVkwBj+nm+xLQKrAmTahGVzg8pI4iabVN3A2PbwZa/WpNNgFoTczttqsEOjEOFR
+         0Jjx0duAZSCqmUQhIgRLeU37nLX0L7qz/VF0zEuND3k4DFDyGcnb03CNzADGkSTM5hpf
+         GBycFk++G0ktD/1y/i02h4jAXuUko/1Nhu+LWTMWDRAQAJWA3bUxGsBmc62A/dbbUZzE
+         KFy5oFLtkiWsUE916Nc9BefQDs6/9MKKl54H5ic47psf1srs689t8cqGKUz3vORbnoW2
+         uFAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date;
+        bh=T6CdN8Xdk1/okkA9yvE3QjCWJl8u7Tbq2ZTF0pLmqgc=;
+        b=ZHe+yjyHnMeY+Mr3ZLhRfiKTKsGLiXVSg0AOlk3VABrFLpurk4M+sZCBWJ1mNllUqj
+         nlNJNCBBpZr50p9kwOxd9vPOByVd0nBoy3f7qAtIdN8Mh5K0yKyICxKlVMHQ/MOJgQin
+         ie662NgvkDpBN469BCge2HuodEtHDOeO+R1lVNA6hmnXSo3Zwf7RxR9gfFN3EQcZhwiu
+         5eoFH1giu94l3ELgKUg5hsOefnDFVMeqAjJUeIswTvgmbGLzXwrZ0Rv7xUeRqszQcNjm
+         qSOSG2G7vpKqsPISGvtMlohPMpC31OBeTuBqLKDzqr6J9kXOcZ06J8iewkopKaheqa8J
+         Fmdg==
+X-Gm-Message-State: ACrzQf3mVfJx60lh+i6ZzdvJvZQlgD3zQeJPvdljVY3RpFuq/iv4Cmc0
+	mszBjYaym9Rr9CezOZM0MNvEfb8ZGNyDmO5iN0Fe+e9EzyyEoA==
+X-Google-Smtp-Source: AMsMyM4v4SmD7WnyVGajGD/S1s7Es+1Wp4eETKlKRNA4Lj4s/rAwdAMRqNQ4Do5rXj4Yib4NEFpDod4fxS7JsLozATg=
+X-Received: by 2002:ac2:4bc1:0:b0:4a1:c4ad:fed5 with SMTP id
+ o1-20020ac24bc1000000b004a1c4adfed5mr2717481lfq.253.1664197198452; Mon, 26
+ Sep 2022 05:59:58 -0700 (PDT)
+MIME-Version: 1.0
+References: <CACB_P4BPX_Qf8-NX4mUJuvqUU6Gamdab88Lk=s8D=ALz-7xjrA@mail.gmail.com>
+ <CAAfekwWaX__oupemz5L3BG2X4p9s-ZSp7=sCcNfeBM=V4k++ow@mail.gmail.com> <CACB_P4BTGxwuTsYVDLrCsQVV13yTrCc88Q2VYESkbaDWHS0=YA@mail.gmail.com>
+In-Reply-To: <CACB_P4BTGxwuTsYVDLrCsQVV13yTrCc88Q2VYESkbaDWHS0=YA@mail.gmail.com>
+From: Julia Simon <juliasimon@danville.k12.in.us>
+Date: Mon, 26 Sep 2022 08:59:46 -0400
+Message-ID: <CAAfekwW2XNh3aoCYFQs_oH7pN4=oi_4Y9Ar4dNJy-KqLFHAbwQ@mail.gmail.com>
+Subject: Re: To you
+To: Duel Mood <duelmood@danville.k12.in.us>
+Content-Type: multipart/alternative; boundary="000000000000d9be9b05e9941a8f"
+
+--000000000000d9be9b05e9941a8f
+Content-Type: text/plain; charset="UTF-8"
+
+Same to you!
+
+On Mon, Sep 26, 2022 at 8:59 AM Duel Mood <duelmood@danville.k12.in.us>
+wrote:
+
+> You're welcome! Hope you had a great weekend!
+>
+> On Mon, Sep 26, 2022 at 8:58 AM Julia Simon <juliasimon@danville.k12.in.us>
+> wrote:
+>
+>> Thank you so much!
+>>
+>> On Sat, Sep 24, 2022 at 12:00 PM Duel Mood <duelmood@danville.k12.in.us>
+>> wrote:
+>>
+>>> Happy birthday!
+>>>
+>>>
+>>> --
+>>> Duel M.
+>>> 10th grade
+>>> DCHS
+>>>
+>>
+>
+> --
+> -Duel M.
+>
+
+--000000000000d9be9b05e9941a8f
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Same to you!=C2=A0<br></div><br><div class=3D"gmail_quote"=
+><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Sep 26, 2022 at 8:59 AM Duel=
+ Mood &lt;<a href=3D"mailto:duelmood@danville.k12.in.us">duelmood@danville.=
+k12.in.us</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=
+=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding=
+-left:1ex"><div dir=3D"ltr"><div class=3D"gmail_default" style=3D"font-fami=
+ly:&quot;comic sans ms&quot;,sans-serif">You&#39;re=C2=A0welcome! Hope you =
+had a great weekend!</div></div><br><div class=3D"gmail_quote"><div dir=3D"=
+ltr" class=3D"gmail_attr">On Mon, Sep 26, 2022 at 8:58 AM Julia Simon &lt;<=
+a href=3D"mailto:juliasimon@danville.k12.in.us" target=3D"_blank">juliasimo=
+n@danville.k12.in.us</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quo=
+te" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204=
+);padding-left:1ex"><div dir=3D"ltr">Thank you so much!</div><br><div class=
+=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Sat, Sep 24, 2022=
+ at 12:00 PM Duel Mood &lt;<a href=3D"mailto:duelmood@danville.k12.in.us" t=
+arget=3D"_blank">duelmood@danville.k12.in.us</a>&gt; wrote:<br></div><block=
+quote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1=
+px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><div class=3D"=
+gmail_default" style=3D"font-family:&quot;comic sans ms&quot;,sans-serif"><=
+div dir=3D"ltr"><div class=3D"gmail_default"><div dir=3D"ltr"><div class=3D=
+"gmail_default"><div dir=3D"ltr"><div class=3D"gmail_default"><div dir=3D"l=
+tr"><div class=3D"gmail_default">Happy birthday!</div></div></div></div></d=
+iv><div><br></div><div><br></div>-- <br><div dir=3D"ltr"><div dir=3D"ltr"><=
+font face=3D"comic sans ms, sans-serif" size=3D"1">Duel M.=C2=A0</font><div=
+><font size=3D"1">10th grade</font></div><div><font size=3D"1">DCHS</font><=
+/div></div></div></div></div></div></div></div>
+</blockquote></div>
+</blockquote></div><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr"=
+><div dir=3D"ltr"><font face=3D"comic sans ms, sans-serif" size=3D"1">-Duel=
+ M.</font></div></div>
+</blockquote></div>
+
+--000000000000d9be9b05e9941a8f--

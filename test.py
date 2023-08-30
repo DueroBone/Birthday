@@ -58,4 +58,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    email.message_from_file().get_payload()
+    # email.message_from_file().get_payload()

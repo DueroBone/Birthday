@@ -1,0 +1,107 @@
+Delivered-To: duelmood@danville.k12.in.us
+Received: by 2002:a17:906:c0c6:0:0:0:0 with SMTP id bn6csp24964ejb;
+        Wed, 13 Apr 2022 05:51:32 -0700 (PDT)
+X-Received: by 2002:a81:9248:0:b0:2ef:533a:abaf with SMTP id j69-20020a819248000000b002ef533aabafmr520462ywg.30.1649854292260;
+        Wed, 13 Apr 2022 05:51:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1649854292; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Oz9AZVUU0P+z8XNuJuSN6VYdYFtaCl0BaMVFO6mnnSocnldJwog8EoUK98mtsS0Nzn
+         xptPlabbxCPgwCwgSpyAQadhYjRHhv8gCQq/yPm4l+wMURZLtonIvCeXM54/MLg61sCy
+         9S/ZPalKTAB5hLU/i8i+53L9JClI++tzv2BUom8YQKznZvaZ0P5w5jhflCsucOW6Q5PG
+         6BP9HZ/SvWzp1r9syUs8mxT2EQUMttvMWoq8L3P8gD0RArpDfhFV//5M0s2+Cqn8E0+u
+         HFm50i83cZi/nS6eFusbJmvwYbGN7+2o4n8dM11SA4Z2S6ooHW05toBXuBYxJq8XE7t1
+         BUXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=lFRWHhSNmahnw3sK2rYGXAk2hDYVrZ6a0JNxLL5cXMk=;
+        b=H8Fl6wjx5UZzyENepj3+iXen/ZATdROhxF1C1Z7M66QXDK15OCqtHAb5FV6YxCh8XZ
+         UXgIKomrzrAmCty0vYTXHeLB/5PneWlylv9YCiPwNJ/VKIk4TTuxbysCEsdYEOuwwmKL
+         0L0tZn6cSE/6zsB47A3oUJKsDzu2fbSU9RRMzLx6UkbtlcvUXG1SlpxVbxxsd34b1O95
+         LPm24OjQm7JkhZZkhInyWwHKTK8fVbpjLY6yy0t8Y2ETtiHkIxJX4Zc/jpwXp7qnhoeJ
+         FfUw1+8yvgfSEPH060qaxCpmHmOwIdf3AzQ3XlFv1XaPOucmk8MG5CYtQ4MMQDbueIk5
+         RQqw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=rVsHbsQm;
+       spf=pass (google.com: domain of chloegreeson@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=chloegreeson@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+Return-Path: <chloegreeson@danville.k12.in.us>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id j66-20020a815545000000b002d82aab98e9sor4243713ywb.125.2022.04.13.05.51.31
+        for <duelmood@danville.k12.in.us>
+        (Google Transport Security);
+        Wed, 13 Apr 2022 05:51:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of chloegreeson@danville.k12.in.us designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=rVsHbsQm;
+       spf=pass (google.com: domain of chloegreeson@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=chloegreeson@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=danville.k12.in.us; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=lFRWHhSNmahnw3sK2rYGXAk2hDYVrZ6a0JNxLL5cXMk=;
+        b=rVsHbsQmXBAVXt75W9Le6uXwhJpXmpOyIGy6uBo629BkesxdWB8iGP44N46qHJztbA
+         HKHKq/kecv6Vk/xwYHj+TA24CYux7O6l5XWbpaFh/wen85db8mmp+JuUJ7j+kmigSWlD
+         CA84/9JOMzjcKT7B/UYFaEv+4zI9/zowZEkik3EwhTgfLQVVImdILz9X6lWyHAZ7jCi8
+         amPMaY3x8/k+BH0j1vP1bPI24PGXLwAB7E3NXSx5wdvcd1NG+4/l73sBFZaRJ22Bodo1
+         uKKH7az9MtZ2G5p83GkUJQU31LXGKIpfxZlhNaWiPP9c+h/01qRukqhmE/hgQE1w6k84
+         aJOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=lFRWHhSNmahnw3sK2rYGXAk2hDYVrZ6a0JNxLL5cXMk=;
+        b=1G1P1thQIzbkvRjm9EJRNZ4kBID4umWSkiUxdSiQxHhMZAVtKdujynJd4NalCoem6x
+         4sJhw2e5ger2rTXDRraoLSfY/YijMwe9DKKzoaIHEPbcayRRozO/pTqWbA+9Yg3csEYP
+         GTrhRJIcMlfiPFMPf2N/N6+WgXPh1K5fKgaFj4JtU7EwU9xlBtLLj9DtMRTrBwmRxpUf
+         u774OYma1k+pp/7Jd4wAsFLLrMzxuJYP0RbH6B1WI1NO97hXkZezmy7nufPRIaxDKK0j
+         Sw9dyQdBFi3tI+hkbUoSuPUQfRq/fcHHQ6br+W+9XWqD92E6KTcGclfnCwEKxHxAfQYv
+         34ug==
+X-Gm-Message-State: AOAM533Y4yq44jFnpKrTwGoaWNljj8sY3RgWzzynTS59E5mJUZZqTgGh
+	RefLKjFnURz6ZMVDTa+IRRBkhIwOHnLFVkCmnQCyzP/3UtLkqQ==
+X-Google-Smtp-Source: ABdhPJwxC04jU9kRuJ///baRHkuPxycj1dfK4InQ3ooAa2juCWtKC2HkaN0gyTqWuptmjPcnvw61D/iDOUHjALbwiuQ=
+X-Received: by 2002:a81:8482:0:b0:2ec:27cc:5fcf with SMTP id
+ u124-20020a818482000000b002ec27cc5fcfmr12632383ywf.277.1649854291287; Wed, 13
+ Apr 2022 05:51:31 -0700 (PDT)
+MIME-Version: 1.0
+References: <CACB_P4DkeE0Q_vqa7YxRa8sTCObHw1ZnadTbkzYc0hxZVRGXKw@mail.gmail.com>
+In-Reply-To: <CACB_P4DkeE0Q_vqa7YxRa8sTCObHw1ZnadTbkzYc0hxZVRGXKw@mail.gmail.com>
+From: Chloe Greeson <chloegreeson@danville.k12.in.us>
+Date: Wed, 13 Apr 2022 08:51:19 -0400
+Message-ID: <CANUgvU6LC2taMXWaRykJWFG10OzWNO3xAiw24nPkNKygDV0FPQ@mail.gmail.com>
+Subject: Re: To you
+To: Duel Mood <duelmood@danville.k12.in.us>
+Content-Type: multipart/alternative; boundary="000000000000f6b89605dc88a2ec"
+
+--000000000000f6b89605dc88a2ec
+Content-Type: text/plain; charset="UTF-8"
+
+thank you!
+
+On Sun, Apr 10, 2022 at 12:03 PM Duel Mood <duelmood@danville.k12.in.us>
+wrote:
+
+> Happy birthday!
+>
+
+
+-- 
+Chloe Greeson
+Danville Student
+
+--000000000000f6b89605dc88a2ec
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">thank you!</div><br><div class=3D"gmail_quote"><div dir=3D=
+"ltr" class=3D"gmail_attr">On Sun, Apr 10, 2022 at 12:03 PM Duel Mood &lt;<=
+a href=3D"mailto:duelmood@danville.k12.in.us">duelmood@danville.k12.in.us</=
+a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0p=
+x 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><d=
+iv dir=3D"ltr"><div class=3D"gmail_default" style=3D"font-family:&quot;comi=
+c sans ms&quot;,sans-serif">Happy birthday!</div></div>
+</blockquote></div><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr"=
+ class=3D"gmail_signature"><div dir=3D"ltr">Chloe Greeson<div>Danville Stud=
+ent</div></div></div>
+
+--000000000000f6b89605dc88a2ec--

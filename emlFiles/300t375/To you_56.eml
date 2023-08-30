@@ -1,0 +1,107 @@
+Delivered-To: duelmood@danville.k12.in.us
+Received: by 2002:a17:906:274b:0:0:0:0 with SMTP id a11csp663731ejd;
+        Sun, 6 Mar 2022 10:14:45 -0800 (PST)
+X-Received: by 2002:a2e:908f:0:b0:246:3e31:a80e with SMTP id l15-20020a2e908f000000b002463e31a80emr5241713ljg.23.1646590485618;
+        Sun, 06 Mar 2022 10:14:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1646590485; cv=none;
+        d=google.com; s=arc-20160816;
+        b=r7AYS3qAkHppTlKxW8JP+OuSgWf6dEkA1AgatHix+7cwGmE59Z/PzcrrkzEHUUy2pu
+         HASp55V5OZDbGCFhQ784cw1DYpAVPk4sDkp03Qx0I8iG+nn0/n524u55wbtFtoWB8NJY
+         XBJlIv2qTzeJaEsG2HKzEJaasf0wety11sBhBvpa2cWyuY+32ClTA+UWz2pSVZL/g/4M
+         bFS60Yq0C4VCoD4258eKG4Z9og0h2QrKZ9SfRd3odcY3Ay5a7BqB/ctreR/MFCBr5gA0
+         XaJQlSKVBPw3f8XFpRGpBS9JV/xWWammPYLiqy1iHgdDEi6p5LC1moxw4cIrocyAwc46
+         6Qqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=96NzabELJR51TDcQnE8Otedaktb+s2ysg0kCbDrFFkQ=;
+        b=C11xux2R5CRNlnNGa3tloap69btGlDgf8YflXOvMgRKHb2NMmVA3v24eATOxsPchjf
+         chbH2Zc3GIMg6IZaax12fIl5TbGpEUf9kZXc/P66zlAXEyh4AfYV52BDNGlToEQ3A2mO
+         Tv7qABs+gSHZIHC0Vk5niytN8Yw7b4zbzqSVpSdyvBw4TlDTRFEKf/TIdpKqY4BwVV75
+         WAn75g9Ygeysh71NU5oEXyHLi0W7ViY74/Cna9P1VrmXsVlGvU43d3c5OmWJ/+jlej+t
+         1gr8dXloh7lLa0KUgQ2r+WanBr+5rVsEnR0Og8tKKl+zuN/H1diNSxfRl/McRiHOjdJZ
+         dStg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=qOP1GSxt;
+       spf=pass (google.com: domain of xanderbumgardner@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=xanderbumgardner@danville.k12.in.us;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=danville.k12.in.us
+Return-Path: <xanderbumgardner@danville.k12.in.us>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id h9-20020ac25d69000000b0044823757b3fsor757368lft.3.2022.03.06.10.14.45
+        for <duelmood@danville.k12.in.us>
+        (Google Transport Security);
+        Sun, 06 Mar 2022 10:14:45 -0800 (PST)
+Received-SPF: pass (google.com: domain of xanderbumgardner@danville.k12.in.us designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=qOP1GSxt;
+       spf=pass (google.com: domain of xanderbumgardner@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=xanderbumgardner@danville.k12.in.us;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=danville.k12.in.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=danville.k12.in.us; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=96NzabELJR51TDcQnE8Otedaktb+s2ysg0kCbDrFFkQ=;
+        b=qOP1GSxtMwE760eIB1G6Tf7hE4b8YNJBMqY4XlJtQigwZfrNHEY43ozbkO//PmzLrL
+         QrFE77xifnY8EJEMqd/vOR5xxKmI4wyM+sQ4A/55pDrqKLM7adiD/nvaXdOC4APFBCHw
+         TxG8tqSAWh9SWeimgwYEQusgo4HyPH7dd/NBXquLs0aMujKAdH7XJSz7Mj37RL6KUIgx
+         80D+LxrTqTb5coXYtOGm29X3yzkQ1zO2Eru7ureJWWHiAKeFw1wlTG6+pe92/+UVpG0P
+         BKE4zzOfLyTpJWesO82URLR5iAr0bN3fPeiYbDqgPA9oBB/W8YufBEuV7s+Afy/ki3Za
+         bVhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=96NzabELJR51TDcQnE8Otedaktb+s2ysg0kCbDrFFkQ=;
+        b=DxLD0A68iJNlG7uzKFNYwZs2giCTb53sfZeB1C9zvybaqIaYSqYHZwox1hPcE7ANmY
+         x0YqNDQ7wBuHkoWSts7hLvJu3uAqzgAIp6dgiUIVPyod0i+l51jyRoNAxBQE2LOjc6oj
+         4MclI2z/nvzvP2PYDN4KB6DNvVqjpkv7s4unj0iI5YbRlOccn4yy+ZwXw7T7frdE9awc
+         BXtGXYmaSa+sN36RQet99o8OkgCS7eTAuYwh9lXImG8yoGbZ280QUtbM0RNcnlIxWpjZ
+         1zSklwTR5hk3aH5REr2dY4qnXuKC8Trbmj7+3iKHqxePt+w4GQcVpupEfQBLdNNXyjpN
+         Y0fQ==
+X-Gm-Message-State: AOAM530E7CqWAE0myTie8eLJwASPR51DZn4qxQkQPXAVVYIARFAI4WSx
+	Uqh7TyyLZ688jdVYivQZLSUqSbCZPMFerHVZ43G8nK5hE2RPSA==
+X-Google-Smtp-Source: ABdhPJzG11BQ91kDkMOPqh+BRExEHH22mQm5pFGUk0kC9fVvScFRu/Xw0apTvJYLQUrNdzkmtkzajYOahJuo3XOny4s=
+X-Received: by 2002:a05:6512:693:b0:445:c0d0:7a63 with SMTP id
+ t19-20020a056512069300b00445c0d07a63mr5463492lfe.148.1646590484445; Sun, 06
+ Mar 2022 10:14:44 -0800 (PST)
+MIME-Version: 1.0
+References: <CACB_P4D0NqC7UBgJwxsBiDO17x_WAQNE6xQbdg770etHnw2y=Q@mail.gmail.com>
+In-Reply-To: <CACB_P4D0NqC7UBgJwxsBiDO17x_WAQNE6xQbdg770etHnw2y=Q@mail.gmail.com>
+From: Xander Bumgardner <xanderbumgardner@danville.k12.in.us>
+Date: Sun, 6 Mar 2022 13:14:33 -0500
+Message-ID: <CAOS8k23yw1kpth5N9swwABWjNxuVxnDCKPJWg=4Z60U8aOaHPA@mail.gmail.com>
+Subject: Re: To you
+To: Duel Mood <duelmood@danville.k12.in.us>
+Content-Type: multipart/alternative; boundary="000000000000ea8f5e05d990b8d2"
+
+--000000000000ea8f5e05d990b8d2
+Content-Type: text/plain; charset="UTF-8"
+
+Thank you!
+
+On Sun, Mar 6, 2022 at 12:03 Duel Mood <duelmood@danville.k12.in.us> wrote:
+
+> Happy birthday!
+>
+-- 
+
+Xander.Bum
+DCSC
+Sent from my iPhone
+
+--000000000000ea8f5e05d990b8d2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Thank you!</div><div><br><div class=3D"gmail_quote"><div =
+dir=3D"ltr" class=3D"gmail_attr">On Sun, Mar 6, 2022 at 12:03 Duel Mood &lt=
+;<a href=3D"mailto:duelmood@danville.k12.in.us">duelmood@danville.k12.in.us=
+</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:=
+0px 0px 0px 0.8ex;border-left-width:1px;border-left-style:solid;padding-lef=
+t:1ex;border-left-color:rgb(204,204,204)"><div dir=3D"ltr"><div class=3D"gm=
+ail_default" style=3D"font-family:&quot;comic sans ms&quot;,sans-serif">Hap=
+py birthday!</div></div>
+</blockquote></div></div>-- <br><div dir=3D"ltr" class=3D"gmail_signature" =
+data-smartmail=3D"gmail_signature"><br>Xander.Bum<br>DCSC<br>Sent from my i=
+Phone</div>
+
+--000000000000ea8f5e05d990b8d2--

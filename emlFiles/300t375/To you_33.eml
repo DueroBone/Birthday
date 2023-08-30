@@ -1,0 +1,100 @@
+Delivered-To: duelmood@danville.k12.in.us
+Received: by 2002:a17:906:c0c6:0:0:0:0 with SMTP id bn6csp859478ejb;
+        Sat, 9 Apr 2022 14:16:12 -0700 (PDT)
+X-Received: by 2002:a05:6402:2142:b0:413:6531:bd9e with SMTP id bq2-20020a056402214200b004136531bd9emr25586689edb.5.1649538972467;
+        Sat, 09 Apr 2022 14:16:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1649538972; cv=none;
+        d=google.com; s=arc-20160816;
+        b=sv32DDPaRANrQ7G4ym5/feJCdOdBbWdMWjIvFJCtkN8drXwtWfnAnnI2S8olcDAp9b
+         VPw80KSyrytKa+l2xW7SpgBB0ejTFp/tlj1/PBY2cxczODJbagqNQd8eorWFFBYIIiDa
+         7FV78yIDywVav324hBTX8IBNwVgeY9XCAJxbzPDFAcfTW6JxLfN/KoVOz6VcIpH4t/p+
+         iBm80erFth3dXLPk2QQVUn5ciL32XRmH1Mj4iW/xseWtAgQU91rdyakPSCYVxY9woHsm
+         +jMVPvC4r+B/cmjP1w8xluinDiiexGS9dirPz4ZCCWUOLhMPhud6XIa2xOORz6GdJTgO
+         jdNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=8x2DotXRzzY9Getesjdw52EiegvC7rH4YV9okjbGkK4=;
+        b=LOFJNOK/ATAAj0Fg6wzuKmNk0G3MLofCYUe5YezBR6XvbXHkHhtrLipGaMRYnj0kG2
+         OIciMv59j/K5C4y3PZLdPLLfpDP4l/iCMWIWeBwj7yFMonJ2xI3jtGsvJ5T6KqMEaaxc
+         bMLAyswqvvmJLWBQVN9XI8aU3xCUUF07so8m3iguPzaPkl5z+rXSmW40zz1+idZfsxhs
+         Q8n1gLgDgg3HVXIToyVGPKpbrdQJOrNtscaOL4D+Ss1UpGdqMkk3m98G+4cjdONvpk+k
+         QM24DehayyE+KeD5ki2CpHoBLpBgNPeBShj3gzPGvSuTy0DmzRkVobasVZip0P9XNpj/
+         b7TA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=EvSKaT82;
+       spf=pass (google.com: domain of katiekern@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=katiekern@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+Return-Path: <katiekern@danville.k12.in.us>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id e15-20020a50e00f000000b00412d0c6028fsor2863593edl.16.2022.04.09.14.16.12
+        for <duelmood@danville.k12.in.us>
+        (Google Transport Security);
+        Sat, 09 Apr 2022 14:16:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of katiekern@danville.k12.in.us designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=EvSKaT82;
+       spf=pass (google.com: domain of katiekern@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=katiekern@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=danville.k12.in.us; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=8x2DotXRzzY9Getesjdw52EiegvC7rH4YV9okjbGkK4=;
+        b=EvSKaT82Vmn0XQKTuIMXgw8TMIAZFB0hJIUYOxQ6rtSLtHlAv8wtk80uxVGbIyT5qy
+         hlBuDJ8a2KlZkwmFUHdaQs6p9TJLgNIYS1oBfbnGiN0o8qjNQLIGjT3e/GcQU3kx+Map
+         uueZONjdCZ/p4xzBWpeONaV/Xfc9KQoxeFPRDxBpvi5YEeOR1E2uyD2qRli+iugekenB
+         SeDFWU1MgyFsP9RhPC5QD/F4sEcKSoWhjb74bGCYgxxSMq/uKZdl0shaqgkMB1C2W93z
+         KD80TlLju3mcxJmkIuEON5XOphF1kck7+1l9R/s1G5aSB5Ebi/EtQtkMSsnOoKzjMXaC
+         K/eg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=8x2DotXRzzY9Getesjdw52EiegvC7rH4YV9okjbGkK4=;
+        b=AXXVzgSLN0McjWD29Gjvh2VqTHww5rVOxJjV+BNZJfA6z3O0IYAWd3GmF+xXdKRz9k
+         Wet6Sh0NCAmtEgc0EXcdJriD6hhtOJ3Fdsj59JRK6kSQRnmxVbGgWsRHFxnHIc6rTdfV
+         uEhGLqe1Mf0NqS6gdqcdoJwMbtduUtst5de0DthVFuFrt3D+kLpyFAOMPFkrKpHqPC8+
+         m34ZSYojDlYoSOYvliiKcx6QQFlZJbIxCZ6jhrLIO6MYa5XHuEpVCzBsU8Fe15Bx7ic/
+         GC2Dt+Ac/zqqzpWFWLVUFFajH8WhJL6pPxWs2raNDO9Omc589QS3cND1XVSDo7RwcwO3
+         Yoqw==
+X-Gm-Message-State: AOAM5306fTdi5b48w6qlbvMi/RCBN0cFW+ICXFbYu8mAw9QXGb8XTuxj
+	9QU1UqX7xwf05nrJ63I13jnGuY3Ebjw3+HgG7RCjTsUvFA19nw==
+X-Google-Smtp-Source: ABdhPJxGAKDgWnHFtU7a/ilz5bvCPZ3ZavI6zcgtbyC793kUKJMjbhqAAJEmfzlI7WcS1nFn/mSYSuOZ4tf2wn+K5qQ=
+X-Received: by 2002:a05:6402:b86:b0:41c:d11e:1756 with SMTP id
+ cf6-20020a0564020b8600b0041cd11e1756mr25857748edb.365.1649538971695; Sat, 09
+ Apr 2022 14:16:11 -0700 (PDT)
+MIME-Version: 1.0
+References: <CACB_P4BC7+kL682rvF5N238jhQSpiUsHuGLpTzt=1t=GKG_jCQ@mail.gmail.com>
+In-Reply-To: <CACB_P4BC7+kL682rvF5N238jhQSpiUsHuGLpTzt=1t=GKG_jCQ@mail.gmail.com>
+From: Katie Kern <katiekern@danville.k12.in.us>
+Date: Sat, 9 Apr 2022 17:16:00 -0400
+Message-ID: <CAHgYb49LNAsLqrtTdUvW3UNr6TzLVeg+AFcyRQgS3C+4fSBEVw@mail.gmail.com>
+Subject: Re: To you
+To: Duel Mood <duelmood@danville.k12.in.us>
+Content-Type: multipart/alternative; boundary="0000000000007391ea05dc3f38d4"
+
+--0000000000007391ea05dc3f38d4
+Content-Type: text/plain; charset="UTF-8"
+
+Thank you!
+
+On Sat, Apr 9, 2022 at 12:03 PM Duel Mood <duelmood@danville.k12.in.us>
+wrote:
+
+> Happy birthday!
+>
+
+--0000000000007391ea05dc3f38d4
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Thank you!</div><div><br><div class=3D"gmail_quote"><div =
+dir=3D"ltr" class=3D"gmail_attr">On Sat, Apr 9, 2022 at 12:03 PM Duel Mood =
+&lt;<a href=3D"mailto:duelmood@danville.k12.in.us">duelmood@danville.k12.in=
+.us</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"marg=
+in:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><div dir=3D"ltr"=
+><div class=3D"gmail_default" style=3D"font-family:comic sans ms,sans-serif=
+">Happy birthday!</div></div>
+</blockquote></div></div>
+
+--0000000000007391ea05dc3f38d4--

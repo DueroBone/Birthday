@@ -1,0 +1,265 @@
+Delivered-To: duelmood@danville.k12.in.us
+Received: by 2002:a05:7022:22b:b0:61:dee1:d8ce with SMTP id 43csp238818dll;
+        Wed, 26 Apr 2023 05:44:32 -0700 (PDT)
+X-Received: by 2002:a81:1ac7:0:b0:54c:a77:cc7a with SMTP id a190-20020a811ac7000000b0054c0a77cc7amr13914073ywa.1.1682513071923;
+        Wed, 26 Apr 2023 05:44:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1682513071; cv=none;
+        d=google.com; s=arc-20160816;
+        b=LZYTiUwToc9a/X756KOJICtApBcIkEn6fGh9/JrQRse0ZDEtsMgMYNAEBZU7d99duX
+         2rrkbXH7lQxtJMmVr/zBnt3/1FokvSmDYq8P7mta4NqBqG8XFc4wdpB1AsuZ0BefWyAa
+         PKzbienXVcG8XN8rIvNT/raBjLEl6jwm3I20hsz75jTqsUTTw2LTf1Umn38obVwWy0ir
+         lg8RxLikPTA5TfHcfdX4KNTb/LO92JVEBAYQrzNF1E6ui6SR/MdDR4NfgYo9Cxxv0sVi
+         0lcpe1E0+eprG8wL3EW7naW70uTEYo6TEw5Js/b1tSlWmRjalFydjpa4fXRRkD3o3o+s
+         ieqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:dkim-signature;
+        bh=6Oyh2X3VudrbOC/v/aiLZb0nboJRZGLw1h0kp3jRze4=;
+        b=rN1+lhUYWumuVvUt+fzWwRE4Ab6FLsTRTh4cyp+V/DW+OYhlAcjI+BvDT/GGeBG1cE
+         bcwv5sVTw573BFlA+u5oAZmtADUcT/4UdqB53Q27vCEg8Hhzjy+Ybvd06d2qg6nOessm
+         0mniaA3E5FVW2aighqc6qJ09ANHB/V46l7ysotrFov+DiH1LfCbzQ6cT1o6eax9Sk9TL
+         CzYac8omOztNNWhWFqYDYkoq31/kdzTfZ6HhzBvHwE47eE032dxbyVuiSbB7I92ruU+R
+         BU2qYFHDISQZLmBZvav8YGZ8tfJ0kzuMHgJ3mVqXkZmtVIlxFdfWC+ZfSpPgJIT5+Wv/
+         PHmA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20221208 header.b=WTIYAKFV;
+       spf=none (google.com: mail-sor-f69.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com
+Return-Path: <>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id a184-20020a811ac1000000b005561f00a0a2sor7298374ywa.184.2023.04.26.05.44.31
+        for <duelmood@danville.k12.in.us>
+        (Google Transport Security);
+        Wed, 26 Apr 2023 05:44:31 -0700 (PDT)
+Received-SPF: none (google.com: mail-sor-f69.google.com does not designate permitted sender hosts) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@googlemail.com header.s=20221208 header.b=WTIYAKFV;
+       spf=none (google.com: mail-sor-f69.google.com does not designate permitted sender hosts) smtp.helo=mail-sor-f69.google.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=googlemail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20221208; t=1682513071; x=1685105071;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:from:to:cc:subject:date:message-id:reply-to;
+        bh=6Oyh2X3VudrbOC/v/aiLZb0nboJRZGLw1h0kp3jRze4=;
+        b=WTIYAKFVEFTceZP39X7z5p81HCGwJRRpAem6IBZIINVzAPW9MntM0fuFsAcpvh5mVg
+         sqadQXSoV7nmM5f+CbnOMh508YsKjbH2bRm0/h6oUwz8bfMq+28PxOB52adWbO2X4HxJ
+         9N2DcSj8AjgiGlJQiU9muViu9AC2FxZRb1jnrTxUpFHKlydNvMZPTc8JBxsb5s+h3YT7
+         5LjKP5A+g5+tLriGOoQHpcVVlw3Xna+KduHHxhzwAlxAOI2qe/x2O460XDfSg8kdOYTb
+         cD2SGSiXEbQSr7r4bY7QT5toJsilFY3I3IsZ6ryaq8BUMxJ2q5cvlZXu5APFSSDY2dI/
+         blYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682513071; x=1685105071;
+        h=in-reply-to:references:subject:from:date:message-id:auto-submitted
+         :to:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6Oyh2X3VudrbOC/v/aiLZb0nboJRZGLw1h0kp3jRze4=;
+        b=F5xeEfyJMgNhkyX0V6dqZcLxzxl2kdY96s7jB3ICVvyDK9rQP+Qr3559p/NIhOQS/y
+         XHtXqiRNkSevL4zc7HbfKy5+0bpzyELmWPykbVQnycj85rwJlkdeUqb5NZof6nh0gsd4
+         STwVt8m8j1fgFspSIahjxDy+mXGEtrRkrkl+iaKKwSkN0Xe6YIan3begADlj9/b7PTn9
+         8Fv9I7t3adaILvlhbpJdrMFz35l6FcmNI+bbs3KIYzFA6p4kcQxh0QsfxDVzLhrVWCns
+         aOgllSrx9udCM9co+MDVeS6WN7SbvCxJRbOQCBkPbTW+0F5lJSg+4Bnvm7BWkuAlF5PS
+         EHMQ==
+X-Gm-Message-State: AAQBX9fEhuJyTHYfnV5ulfkQlBYgP1eawKogUl6dHpz0Upz4Z0M4lvAG
+	TB7qS9nfmGpwKJ+jzyHrUIcC2qV+vROJb3v4+CMSpA==
+X-Google-Smtp-Source: AKy350bMdnRDore4Ll7hZtox01rALp1McHQuNv/c9Kuhnx2DJP/RvRn8Pf/1Kq8Wjxq2OEBSUCRo5HgbGKlSTQkb/MjwgXq0L2dBUUM=
+X-Received: by 2002:a81:1ece:0:b0:544:a86e:db72 with SMTP id e197-20020a811ece000000b00544a86edb72mr13890902ywe.4.1682513071715;
+        Wed, 26 Apr 2023 05:44:31 -0700 (PDT)
+Content-Type: multipart/report; boundary="000000000000f8284905fa3c9914"; report-type=delivery-status
+To: duelmood@danville.k12.in.us
+Received: by 2002:a81:1ece:0:b0:544:a86e:db72 with SMTP id e197-20020a811ece000000b00544a86edb72mr12141220ywe.4;
+ Wed, 26 Apr 2023 05:44:31 -0700 (PDT)
+Return-Path: <>
+Auto-Submitted: auto-replied
+Message-ID: <64491caf.810a0220.ae049.36ca.GMR@mx.google.com>
+Date: Wed, 26 Apr 2023 05:44:31 -0700 (PDT)
+From: Mail Delivery Subsystem <mailer-daemon@googlemail.com>
+Subject: Delivery Status Notification (Failure)
+References: <64491cae.0d0a0220.2fc25.dae3@mx.google.com>
+In-Reply-To: <64491cae.0d0a0220.2fc25.dae3@mx.google.com>
+X-Failed-Recipients: oyindolapobayode@danville.k12.in.us
+
+--000000000000f8284905fa3c9914
+Content-Type: multipart/related; boundary="000000000000f82e6b05fa3c991a"
+
+--000000000000f82e6b05fa3c991a
+Content-Type: multipart/alternative; boundary="000000000000f82e7405fa3c991b"
+
+--000000000000f82e7405fa3c991b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+** Address not found **
+
+Your message wasn't delivered to oyindolapobayode@danville.k12.in.us becaus=
+e the address couldn't be found, or is unable to receive mail.
+
+Learn more here: https://support.google.com/mail/?p=3DNoSuchUser
+
+The response was:
+
+550 5.1.1 The email account that you tried to reach does not exist. Please =
+try double-checking the recipient's email address for typos or unnecessary =
+spaces. Learn more at https://support.google.com/mail/?p=3DNoSuchUser r129-=
+20020a81b387000000b00536e42ebd18sor9726474ywh.24 - gsmtp
+
+--000000000000f82e7405fa3c991b
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+<html>
+<head>
+<style>
+* {
+font-family:Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"email-wrapper" style=3D=
+"padding-top:32px;background-color:#ffffff;"><tbody>
+<tr><td>
+<table cellpadding=3D0 cellspacing=3D0><tbody>
+<tr><td style=3D"max-width:560px;padding:24px 24px 32px;background-color:#f=
+afafa;border:1px solid #e0e0e0;border-radius:2px">
+<img style=3D"padding:0 24px 16px 0;float:left" width=3D72 height=3D72 alt=
+=3D"Error Icon" src=3D"cid:icon.png">
+<table style=3D"min-width:272px;padding-top:8px"><tbody>
+<tr><td><h2 style=3D"font-size:20px;color:#212121;font-weight:bold;margin:0=
+">
+Address not found
+</h2></td></tr>
+<tr><td style=3D"padding-top:20px;color:#757575;font-size:16px;font-weight:=
+normal;text-align:left">
+Your message wasn't delivered to <a style=3D'color:#212121;text-decoration:=
+none'><b>oyindolapobayode@danville.k12.in.us</b></a> because the address co=
+uldn't be found, or is unable to receive mail.
+</td></tr>
+<tr><td style=3D"padding-top:24px;color:#4285F4;font-size:14px;font-weight:=
+bold;text-align:left">
+<a style=3D"text-decoration:none" href=3D"https://support.google.com/mail/?=
+p=3DNoSuchUser">LEARN MORE</a>
+</td></tr>
+</tbody></table>
+</td></tr>
+</tbody></table>
+</td></tr>
+<tr style=3D"border:none;background-color:#fff;font-size:12.8px;width:90%">
+<td align=3D"left" style=3D"padding:48px 10px">
+The response was:<br/>
+<p style=3D"font-family:monospace">
+550 5.1.1 The email account that you tried to reach does not exist. Please =
+try double-checking the recipient&#39;s email address for typos or unnecess=
+ary spaces. Learn more at https://support.google.com/mail/?p=3DNoSuchUser r=
+129-20020a81b387000000b00536e42ebd18sor9726474ywh.24 - gsmtp
+</p>
+</td>
+</tr>
+</tbody></table>
+</body>
+</html>
+
+--000000000000f82e7405fa3c991b--
+--000000000000f82e6b05fa3c991a
+Content-Type: image/png; name="icon.png"
+Content-Disposition: attachment; filename="icon.png"
+Content-Transfer-Encoding: base64
+Content-ID: <icon.png>
+
+iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAAADnRuK4AAAACXBIWXMAABYlAAAWJQFJUiTwAAAA
+GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABTdJREFUeNrsnD9sFEcUh5+PRMqZ
+yA0SPhAUQAQFUkyTgiBASARo6QApqVIkfdxGFJFSgGhJAUIiBaQB0ZIOKVCkwUgURjIg2fxL4kS+
+YDvkbC/388bi8N16Z4/d7J/5PsniuD3fyePP772ZeTsDQRAYQL/UGAJAIEAgQCBAIAAEAgQCBAIE
+AkAgyJT3Mv+Eq7vYK8mTE+MDRCAghQECAeRQA5V2ZOpmg5vDx3NPzRbmGRMEcmTrEbNNB8zWfRD+
+f/Efs2e3zCZvMjaksBg27TfbcuSNPEKP9ZyuAQKtHX2O9ncNgWC57umMPKvRNb0GEKgnLoUyxTQC
+rcns0/6uIRAs8/hGf9cQCJZpTpjdO2f25/03z+mxntM1eLtsZAgiUtX4JcaBCAQIBAgECARQ8CJa
+G5jab4J4pm4WZmO3OALVh802fIwcLkyPkcKAGggAgQCBAIEAgQCBABAIEAjKA/1AnahhbO5FdOOY
+VsrrDbPBYcYKgf5D2wLaV3p+22xh1u17tO3S+DTcvxvagUDeivPgx/a/95J/73w7Sj26Hn4pKo2M
+ehuV/KyBJM6d0f7k6RKx/R63vvL2tmf/ItDdM2ZTP6f7nkp9Y2fDx1v9akmpIU+KSCLVUghUQfSL
+zVKeTklbLxGoctw/nzC5rw8L5KRNbkpnKq6pgSqEClzNnFzY+XnYWrt6VpVk1vbwWvg+RKCKMOUw
+Q1LEOXA+/MX3mpJvGDHb265xtnzmFoUK1HaKQGlMtePYM+q2KKjXuaS1NJYIEKgI8jhEgqHt4cqy
+Ky53j3hyHz2bqSLp2o2LbJ7MxKovkGqXteoWpaOk96O9/yF/dF7NwlS36AuIQIBA5celQK4PIxBE
+4LLzrtoLgaALdSy6CJRkWQCBPGLsTHznomZ9nszUECgJ2ml3WWHe+QVFNPSQx6UdZNtxr9pbEShN
+eTTz8mQXHoHSlke7+Z+c9m6VGoHSkEfs/trLW3wQKApN1V3lGfnGu2Z6BFoLtYCs3GWBPAiUCLVh
+/HoaeRCoT9R873KLM/IgUBfapnCpe5AHgXry4pf412ihEHkQqCdxd5VqrcezhUIESsJMTJ+Pdthp
+Z0WgyNlXXPHc2Mc4IVAELl2Gnh8mhUDvCkfbIVAkcbf/aOoO3fMKhqAD3frTa4quwpn0hUDOkQhI
+YYBAgECAQAAU0QlYObl+5Ug8NcprZkZxjUCxRPVA6zmtEXHCBykskrhjgHXN09PoEcgFl4M4H11j
+nBAoApcj6ZoPGScEAgTKApcDoTw5sgWB+sGlz1n90IBAPdE6j1o21PfcC11jLagL1oFWRyGlKU3p
+OxcSJQ7NZAjkhHp/uG2HFAYIBAgECASAQIBAgECAQAAIBOkxEARBtp9wdVfAMOfIifEBIhCQwgCB
+ABAI0oV2jhxZ+nfBatuPZfgBCy0Eqqo8c01b+uu51XZvzOgDWoHNTGR+pCwpLEd5svuAZXlO2uEr
+PyEQ8hRWHgRCHmqg0sjTnLalv6crJQ8C/U8stqNO0I4+VZOHFIY8COS1PGL2ybd5yUMKK7s8zYmL
+dujyd3n+nESgcsvzZd4/KwIhDwIhT35QA6UyE1qyxZnfvJMHgdKS549JC1qvvJOHFIY8CFR5eV5O
+XimqPAhUdHnmfx+zgxdOFXkoqIGKKs/cswnb/8Oeog8HEai48nxUhiFBIORBIOShBioskkbySCLk
+IQIhDwIhj28p7FApR6b1qlEbHGpkO/rr6215vi/zH1r2x7tApSGFAQIBAgECAQIBIBAgECAQIBBA
+LK8FGADCTxYrr+EVJgAAAABJRU5ErkJggg==
+--000000000000f82e6b05fa3c991a--
+--000000000000f8284905fa3c9914
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; googlemail.com
+Received-From-MTA: dns; duelmood@danville.k12.in.us
+Arrival-Date: Wed, 26 Apr 2023 05:44:30 -0700 (PDT)
+X-Original-Message-ID: <64491cae.0d0a0220.2fc25.dae3@mx.google.com>
+
+Final-Recipient: rfc822; oyindolapobayode@danville.k12.in.us
+Action: failed
+Status: 5.1.1
+Diagnostic-Code: smtp; 550-5.1.1 The email account that you tried to reach does not exist. Please try
+ 550-5.1.1 double-checking the recipient's email address for typos or
+ 550-5.1.1 unnecessary spaces. Learn more at
+ 550 5.1.1  https://support.google.com/mail/?p=NoSuchUser r129-20020a81b387000000b00536e42ebd18sor9726474ywh.24 - gsmtp
+Last-Attempt-Date: Wed, 26 Apr 2023 05:44:31 -0700 (PDT)
+
+--000000000000f8284905fa3c9914
+Content-Type: message/rfc822
+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=danville.k12.in.us; s=google; t=1682513071; x=1685105071;
+        h=subject:from:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lpA8xFm9qGpKRUwfRRpAw6MDSpS+wmG1bRoDocLpVLE=;
+        b=Kh06YEorM4Fr+6VTmidqMXltwlR++YQCUpcrFxtyKPqUqQZoegIwNAilOW4AYCOXeV
+         DNlg6wejdRLClG8stMuEFg6VKjaoqr5zh1LOCg6JupZjiVBqq5NVj3mt0Ckz87w29g8z
+         qY9ZKPV8ki0OFJYd2X4szQprxmtjRa2fadOifHZEiVbY2+ILrVHu5aSwiioWkAvTOLTA
+         X+YWib/gPK7DKlLp84CE+tiCCFBZ2C2Q3vF855GoyHbvk9w+Ecp/DF7HVLsNhPm28v83
+         KmZHmUqdJOF+A2LlkqDmy3VguVopMAHPQkYFZihJ/nFtg39BhbvFE6+9pMw8ksxhJJl1
+         45hQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1682513071; x=1685105071;
+        h=subject:from:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=lpA8xFm9qGpKRUwfRRpAw6MDSpS+wmG1bRoDocLpVLE=;
+        b=fAqTbJPF1AUVgg3uJrZHUybNAyBHsTR5E2Y9tcCmbDFqDG00MW1xuKfUU9UndDkbWi
+         bNyXrTbokc1sQX1Wpqpzqkn0Lilecc+ba7g9tJ1jvyTsNsWuv3u6eit2kxAOAUWKq3CU
+         59IENYINJQg7cqCYLPCjY/saX4lktjQE5UEgC1p3bwdahZHUsUqNRPuhIdrKeOLjpMhX
+         SB95suXIru8kivID6xL67uxd6QWa4gZkTAW1sIkuBnJlpokYrjH9qjaXXapcxMNgv+N8
+         qB+vvSB5RR++KblLC5Mc8qT1oha8yHfw5o8lr4ukLvB2+F86dykZkC/zU4XBGfCC6+IJ
+         hf2w==
+X-Gm-Message-State: AAQBX9ecsxWJ8pRW7L+vIvt5o4Bnc8+/nEmOAXxcDlGfUNH3ayvUtGtZ
+	HYTtp0fU2t/Ws5uEOyPoIjYzR2b6KHBSMRIfeFn8ztyRXCKEjNo7CUOavcC77Ix6/2FBlbSPe+m
+	ZcpPHMO99Z5qvdLt/HP5wXZLaiXbd/vMMZTntWjH87snkMOJxyGTizCtAjtT3/0/E0QFEx1Qr21
+	3RTym3wVnFjPQowqUI6ZFyle6llWdbMw==
+X-Google-Smtp-Source: AKy350Yh+QFb3davHABFuqklWsnmeGlIQtC/x7/KgA5XW7NzeYr38z3C6zNLxoOHs7T4hLgdgtoIyw==
+X-Received: by 2002:a81:1ece:0:b0:544:a86e:db72 with SMTP id e197-20020a811ece000000b00544a86edb72mr13890886ywe.4.1682513071001;
+        Wed, 26 Apr 2023 05:44:31 -0700 (PDT)
+Return-Path: <duelmood@danville.k12.in.us>
+Received: from [127.0.1.1] (75-103-168-108.ccrtc.com. [75.103.168.108])
+        by smtp.gmail.com with ESMTPSA id t124-20020a0dd182000000b0054f9dc9c7f2sm3353972ywd.44.2023.04.26.05.44.30
+        for <oyindolapobayode@danville.k12.in.us>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Apr 2023 05:44:30 -0700 (PDT)
+Message-ID: <64491cae.0d0a0220.2fc25.dae3@mx.google.com>
+Date: Wed, 26 Apr 2023 05:44:30 -0700 (PDT)
+From: duelmood@danville.k12.in.us
+Subject: To you
+
+Happy birthday!
+
+
+--
+Duel M. 
+10th grade
+DCHS
+    
+
+--000000000000f8284905fa3c9914--

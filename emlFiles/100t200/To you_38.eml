@@ -1,0 +1,113 @@
+Delivered-To: duelmood@danville.k12.in.us
+Received: by 2002:a05:7022:62a1:b0:5d:8a59:1f94 with SMTP id e33csp33808dle;
+        Fri, 27 Jan 2023 09:56:39 -0800 (PST)
+X-Received: by 2002:a2e:b895:0:b0:28e:aa75:1356 with SMTP id r21-20020a2eb895000000b0028eaa751356mr2450135ljp.38.1674842199575;
+        Fri, 27 Jan 2023 09:56:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1674842199; cv=none;
+        d=google.com; s=arc-20160816;
+        b=d4P/v7fgGVQgM7zSLhtMC6Jbu2Bx4dkxtm2DtDyxXzSL8Yklnzbu4HUstZBqKnnKGI
+         KRyJJAR44e8WrF1QtQj8btDTUkisSSV+vgqtSNrU1u8M7NdiwfTPUK+UswDWZXg5P2wD
+         XnRBGlvnQ+1axy/9ZMMpfazpnPODrekkik8Lfzhu5/QPoFd3cOS0iyVLqFI5hY1aAG4b
+         plyE0e5jKq8AJyCGc6/g2uPajuReS0z4lgRbjf6cod2gkP5agpAuUMMmDOoBqvdUF0cu
+         DkgTTJpW4vQA3yu7YW/xQ1o2onTsOqtMBccmUjTGTkRSw8HYZDrwq0TcyYbdkea4494w
+         4yhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=5GH/1ZglHrHcyFwuBA6QbTFGMJ+UiFswcn7r7Lw5Mao=;
+        b=k0AvlmkG9505e1O2+kGpunoRRoPtW4cKI9sFPtWHQt9RVzkx0k3okZqvR4O8RwZRor
+         k9UsxjwgFVAcEgRhphvzXz5aVtDOb7X0C++b7MqmgdfdO/fqCyU70ali7HM4FVdplG6m
+         7W0WRrA60JfGDzsjgnNtDQAESW1ExI5jXD20Pya2c/4dMVJWODmCD7+GwtEOXUHyCSwF
+         M3iE6w1J85I7FHSpYmZ7qbVHS8RjhX5Vq7f4dn0FLxc4asB4g9RBeU7K7lUbNdbEhTWw
+         8ShZKkhg2B2a48v78Xea52lCIC8XcLCgj//NE/dRxUd7vTd9RxSn9rLlihGQKbyvlns4
+         Ozfw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=tMJwQdfz;
+       spf=pass (google.com: domain of aubreyrichardson@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=aubreyrichardson@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+Return-Path: <aubreyrichardson@danville.k12.in.us>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id q11-20020a056512210b00b004caff9bb145sor1260488lfr.40.2023.01.27.09.56.38
+        for <duelmood@danville.k12.in.us>
+        (Google Transport Security);
+        Fri, 27 Jan 2023 09:56:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of aubreyrichardson@danville.k12.in.us designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=tMJwQdfz;
+       spf=pass (google.com: domain of aubreyrichardson@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=aubreyrichardson@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=danville.k12.in.us; s=google;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=5GH/1ZglHrHcyFwuBA6QbTFGMJ+UiFswcn7r7Lw5Mao=;
+        b=tMJwQdfzWQ3x9lxUKSnyzagw/3mRRlX7xfKZOgB5bGkNHGeWrCmxaUNUUTIms/OA8T
+         NObsLRTHY6MxFKncya8SndMrupplKKk92ZLulRpSoa185054wBguKWhxTv2b6wZWZD0e
+         3KG4zFQXY+tF+5fKlIqGSpVGNdsR7h8pwYfRqv9Y72GV+E4x4MwD7DvO88ENrIsh9hv4
+         eKVGmt4CyF9EwaCNQexf5k6I8SMa7PdcDt/ePwivWcZwDWC/H+/Ywv+eWx81937cJ3CQ
+         D2UbfSHl6ybftS8S3xz0lKerLq9E8UppVEQYJBALz7dDG3pIJ9FIX2ikE6nu0PSd1COm
+         6i5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=5GH/1ZglHrHcyFwuBA6QbTFGMJ+UiFswcn7r7Lw5Mao=;
+        b=Kk2VcssqNPt6G9g4ROkrLGpLorYtXltL/UJK97y/0YfXISxrbVa9gLCePJIjfgkQMH
+         vXInMB771hOVvQxWH/VBobRySUatbXVFxmTMSlhqzr/46bD51NWTElvEUFp/j7DarpPm
+         pkXDER8CQu4LSbVE7tC00vlCPlhci21yEVcXKE8qPbs0/IX49O2ga7tpAO9YhPXE5Dmj
+         0YMZJseHeFMFcrO5UJnPelj5m4hx85Il9oG7mdhCA00ehnyYl1/PlUVjrDeluKXICh0v
+         4JHqLv9QU0pxy7AroBVv4gX9hUSaCXh5fIY4mBT1Fce91cd7pQo6kH/XD8YJhWByD6zR
+         pm3g==
+X-Gm-Message-State: AFqh2kr3GCTbAPf333OWQCSIXrU3hUHNVDCy85aYdXbneFWqnjkE3lJP
+	yxd2CPwJEavqhU2BR6DCEkW86ZbK7OVkR+ipQxwrKH841fX5IdvU
+X-Google-Smtp-Source: AMrXdXvpUUt7M2Qlj+C0msq3hKggjA+RIvAjfJV1UcC87ZSxDeBLBsTVdtRf5IlYuMzsAqYxbKTl8qwaXT0vx9OX+Ts=
+X-Received: by 2002:a05:6512:490:b0:4ca:f2ea:21d6 with SMTP id
+ v16-20020a056512049000b004caf2ea21d6mr2149585lfq.244.1674842198439; Fri, 27
+ Jan 2023 09:56:38 -0800 (PST)
+MIME-Version: 1.0
+References: <CACB_P4ATBqWisg-Ujoc45ewpAB2Uf7f5xFAWPXPM4e_xh-AhtQ@mail.gmail.com>
+In-Reply-To: <CACB_P4ATBqWisg-Ujoc45ewpAB2Uf7f5xFAWPXPM4e_xh-AhtQ@mail.gmail.com>
+From: Aubrey Richardson <aubreyrichardson@danville.k12.in.us>
+Date: Fri, 27 Jan 2023 12:56:26 -0500
+Message-ID: <CACZgYXbeWk-1JOu=W_CgVegaQb5WQT1F6xM8zHuMeX78bMMq3Q@mail.gmail.com>
+Subject: Re: To you
+To: Duel Mood <duelmood@danville.k12.in.us>
+Content-Type: multipart/alternative; boundary="0000000000004b13f805f34296c4"
+
+--0000000000004b13f805f34296c4
+Content-Type: text/plain; charset="UTF-8"
+
+thanks
+
+On Tue, Jan 17, 2023 at 9:28 AM Duel Mood <duelmood@danville.k12.in.us>
+wrote:
+
+> Happy birthday!
+>
+>
+> --
+> Duel M.
+> 10th grade
+> DCHS
+>
+
+--0000000000004b13f805f34296c4
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">thanks</div><br><div class=3D"gmail_quote"><div dir=3D"ltr=
+" class=3D"gmail_attr">On Tue, Jan 17, 2023 at 9:28 AM Duel Mood &lt;<a hre=
+f=3D"mailto:duelmood@danville.k12.in.us">duelmood@danville.k12.in.us</a>&gt=
+; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
+ 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div di=
+r=3D"ltr"><div dir=3D"ltr"><div class=3D"gmail_default" style=3D"font-famil=
+y:&quot;comic sans ms&quot;,sans-serif"><div dir=3D"ltr"><div class=3D"gmai=
+l_default"><div dir=3D"ltr"><div class=3D"gmail_default"><div dir=3D"ltr"><=
+div class=3D"gmail_default">Happy birthday!</div></div></div></div></div><d=
+iv><br></div><div><br></div>-- <br><div dir=3D"ltr"><div dir=3D"ltr"><font =
+face=3D"comic sans ms, sans-serif" size=3D"1">Duel M.=C2=A0</font><div><fon=
+t size=3D"1">10th grade</font></div><div><font size=3D"1">DCHS</font></div>=
+</div></div></div></div></div></div>
+</blockquote></div>
+
+--0000000000004b13f805f34296c4--

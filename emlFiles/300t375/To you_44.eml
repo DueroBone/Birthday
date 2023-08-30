@@ -1,0 +1,106 @@
+Delivered-To: duelmood@danville.k12.in.us
+Received: by 2002:a17:906:274b:0:0:0:0 with SMTP id a11csp829366ejd;
+        Sun, 20 Mar 2022 08:37:30 -0700 (PDT)
+X-Received: by 2002:a25:d2c1:0:b0:633:c33e:8df2 with SMTP id j184-20020a25d2c1000000b00633c33e8df2mr9532909ybg.597.1647790649947;
+        Sun, 20 Mar 2022 08:37:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1647790649; cv=none;
+        d=google.com; s=arc-20160816;
+        b=huTTezzlZnA3/r38LEdIw8+SW83k/q/j+su8+xHh9vw9Mr9bOmZUpKopuATwBhw9ly
+         ioARtIKK0UDR6YMKc1YibrfJLuqBJ9U5jLLR4DKwjBMmZTqU8XeOFBQan9BHYK4it4bQ
+         h3lEus3fHbn0AXqL5CXLHnvA/FgVNhl+mEknFuenzZocyRX8qUNDIsjWuniVrP/CAveP
+         /qJD7S8i0uAAN+nC51FxzEHmmRsYgTzS9xKXf5cgmENoFmZxgOTS9hmcqRa0YhCC8jah
+         Z2Fnsqix2ZFAzBWa9Ta7ITIeBkrIG84hkwooMMRNmMK89/0z5rI08vlFzreOkOf2wLxD
+         lqYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=0VSa2+vWs7KWkKYBHO0O6o+BUBzqcoSRkB4Z75i+Q1o=;
+        b=RHY1KsPgsHW9LTmTuNMw3ObvV7ZEynVPeoPcwBhQFIJHqpHOekBvh7bRuQAM76eiNH
+         k9xd87I7h5u7dasmUcBGsdqnQzSPNXa5hJYYFNLgpNJ6l7pgWxcciYGkk+NViGaoJbA7
+         C3AKBQ6ciQ0uZ4ywtwJcB4NDf9fEAybTX/mqdgNaKpLFUe0R6XHMT6P4TyM1fRuqFcZm
+         lblo4a7dyxIaQPY8GmqQW6aJR9LXWQgWOG39IkpzBRdlx2mN3o1IxBwUAihsuOYmIFZk
+         QRIZ6HxfRhtaeJ81hgUkiSliLHGLXRTyExiAzbDB+axpDkCj7TouGvtg53DpuDV6vJuY
+         elag==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=wJrt6pm8;
+       spf=pass (google.com: domain of hayleelogue@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=hayleelogue@danville.k12.in.us;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=danville.k12.in.us
+Return-Path: <hayleelogue@danville.k12.in.us>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id x6-20020a056902102600b00633d6c0dcedsor1267702ybt.128.2022.03.20.08.37.29
+        for <duelmood@danville.k12.in.us>
+        (Google Transport Security);
+        Sun, 20 Mar 2022 08:37:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of hayleelogue@danville.k12.in.us designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=wJrt6pm8;
+       spf=pass (google.com: domain of hayleelogue@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=hayleelogue@danville.k12.in.us;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=danville.k12.in.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=danville.k12.in.us; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=0VSa2+vWs7KWkKYBHO0O6o+BUBzqcoSRkB4Z75i+Q1o=;
+        b=wJrt6pm8GUTrP8ZnrnvlYKIMwK3ffIHtlZsokpO5sRj9mBQsFhiMwoR2Cegi6GNl1x
+         wcmNpWJaD1SiW95E2BFW6em++WA+Bgns5efsuM41RcqL+dmNptixjyRXXbCbOWGvq4pd
+         TuAugEiTgiq80ddFbmiSIkg0Y0VaHMWGq40cGadKdiN7l4mPelB53Qp6FUj6FOTgYOFw
+         TECa/gDMNx9WFf3Nic6MEYwo23YXYBDhYGTSsvVIfBCw8DayoKQsUc3SUPMCQPIE2oqU
+         vj6T6bfHGGvG98aeIyNykhhk1P5tjHoVRj6UXWuOH975DJkiwNHng0D6AIMBBNbt5hfR
+         3GgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=0VSa2+vWs7KWkKYBHO0O6o+BUBzqcoSRkB4Z75i+Q1o=;
+        b=AJssPSgu7TmvMcdjt2kg+hTntgP8TK+vrJDmkV/GGxFxCx8QocQl7zWqTxLVYqWGHq
+         rwtjWO49O+KSq6TIq6SLaCKrX7xw5VWCqBMC4PWy907YhFKlcObwmWzJCEvgJujxcy22
+         bkhCUQNM7IfhkFZTdCEciR4AF8FeztrpDiHQmOPxUiYLjIFLXoj8P1CEOlFRTAlkhLpj
+         mh9ddA6NAMhrxs2QvDMKrq/HMmNCccZ6Aorql7ftY1mUDyTPTuJyua0n0z0UIk7GY1zO
+         LOV3Q93hauiLZwwJN8Jh+1gD2W2auT2hVJKDL/6Crde6L3fbZ1lnPJtD0uw1GuY7hJah
+         nL7A==
+X-Gm-Message-State: AOAM533ngkPnDo/vrTbtfeiw2pPWTShhFUsNGjQZc1RSzte9qVRwiCEn
+	3rYmpsNWEia9KPe6YW4bgNiez0B5CTsBDutKzCEc4n7xzpL6Rg==
+X-Google-Smtp-Source: ABdhPJyVkjMga2HKH7ZgQWfPV2oM0Lie6UAhouQ7uapHPY+zXQnL4hMkmFZoEdEqz6kxFxLSF8lRk3ZTKtUupGceKoU=
+X-Received: by 2002:a25:4189:0:b0:633:8bbf:c2e2 with SMTP id
+ o131-20020a254189000000b006338bbfc2e2mr18227184yba.556.1647790648804; Sun, 20
+ Mar 2022 08:37:28 -0700 (PDT)
+MIME-Version: 1.0
+References: <CACB_P4A_-O9pgcEWhBCVCjrGO-Poo17ppHgKFCwFa_vLq3qk1g@mail.gmail.com>
+In-Reply-To: <CACB_P4A_-O9pgcEWhBCVCjrGO-Poo17ppHgKFCwFa_vLq3qk1g@mail.gmail.com>
+From: Haylee Logue <hayleelogue@danville.k12.in.us>
+Date: Sun, 20 Mar 2022 11:37:18 -0400
+Message-ID: <CAF85DZQBzSLTU8qt5PLbf7Q-YMKx4wHDkAS-HC9V5zU8giyrJA@mail.gmail.com>
+Subject: Re: To you
+To: Duel Mood <duelmood@danville.k12.in.us>
+Content-Type: multipart/alternative; boundary="00000000000049613705daa82829"
+
+--00000000000049613705daa82829
+Content-Type: text/plain; charset="UTF-8"
+
+Thank you!
+On Fri, Mar 18, 2022 at 8:37 AM Duel Mood <duelmood@danville.k12.in.us>
+wrote:
+
+> Happy birthday!
+>
+> --
+> -Duel M.
+>
+
+--00000000000049613705daa82829
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Thank you!=C2=A0</div><div>On Fri, Mar 18, 2022 at 8:37 A=
+M Duel Mood &lt;<a href=3D"mailto:duelmood@danville.k12.in.us">duelmood@dan=
+ville.k12.in.us</a>&gt; wrote:<br></div><div><div class=3D"gmail_quote"><bl=
+ockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-lef=
+t-width:1px;border-left-style:solid;padding-left:1ex;border-left-color:rgb(=
+204,204,204)"><div dir=3D"ltr"><div class=3D"gmail_default" style=3D"font-f=
+amily:&quot;comic sans ms&quot;,sans-serif">Happy birthday!</div></div><div=
+ dir=3D"ltr"><div><br></div>-- <br><div dir=3D"ltr" data-smartmail=3D"gmail=
+_signature"><div dir=3D"ltr"><font face=3D"comic sans ms, sans-serif" size=
+=3D"1" style=3D"font-family:&quot;comic sans ms&quot;,sans-serif;color:rgb(=
+0,0,0)">-Duel M.</font></div></div></div>
+</blockquote></div></div>
+
+--00000000000049613705daa82829--

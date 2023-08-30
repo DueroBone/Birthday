@@ -1,0 +1,149 @@
+Delivered-To: duelmood@danville.k12.in.us
+Received: by 2002:a05:7022:62aa:b0:45:5dcb:96ec with SMTP id e42csp510157dle;
+        Tue, 13 Sep 2022 09:40:37 -0700 (PDT)
+X-Received: by 2002:a17:906:9b86:b0:73d:72cf:72af with SMTP id dd6-20020a1709069b8600b0073d72cf72afmr22745207ejc.440.1663087236913;
+        Tue, 13 Sep 2022 09:40:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1663087236; cv=none;
+        d=google.com; s=arc-20160816;
+        b=p6g4Neo1DAmMVLUa1V06Twy1m6sN57ipkNKR3iOF0/PIY1fcplgVecwjFqMKPZAUgJ
+         XkKZezqb2CemCIH1qPOUZcsyo5LxQYDyJsO+mCe9854UDIPx24S3/pZa3Jcs9lFq/kCq
+         smNkJsEE6s6ypf9N1YQk9mdLZscndvnKrADmu0r3bj4smfJ5TyMtuOfdPZYdeENhpG7E
+         WEt7WUjsYcCxW+0YQ+Xnq1iGAfGkMvoz+/WkrwIFCmfTw52UhTfSy2HmjM4WG5Buchfg
+         hqhxGwFNrwDJDeCxFwYexYL/TiIroYUxET8SYcKems5HszCG4oGsKGMOh43/R9Br5plY
+         AQ/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=h2nO0OFIqjSzplKZiPiDsCkVLIpTomoxhdk/ngM+t6g=;
+        b=k+Pt92wfqx1sEBtS/8kZcXMkjzIwusyDq3dqXCHsGtHlClVkQvNxbn8rwwQ1inU+p6
+         jJZHc6Arrpy0rCJAL1vB635f5t7uRNHRdPzzxUBdGtCU7kq2SlpXJ9jzlInkXgI/utKY
+         NJyUZqDV+6ViQEnwP/gLBnUD40ZcIXaYQA9pGQEobU4MqpDbjwX3xcTbrD3uTJ6lZbPF
+         vHWahYTztN/MySpTNekYCwVmcYHWlEJPDN4bk1ZSG6ZOz1nhlBzzRwDfpUaKVkuY3Bil
+         UJMkIgCpQproAF+318uQwfYgTYQbRuxF7xDz00BQkTxmIkQAyEqyoRprv6XaG9WaaIy8
+         dGvA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=0HVoolnj;
+       spf=pass (google.com: domain of kyleighgasper@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=kyleighgasper@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+Return-Path: <kyleighgasper@danville.k12.in.us>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id lh1-20020a170906f8c100b0073d62c8b286sor4658073ejb.20.2022.09.13.09.40.36
+        for <duelmood@danville.k12.in.us>
+        (Google Transport Security);
+        Tue, 13 Sep 2022 09:40:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kyleighgasper@danville.k12.in.us designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=0HVoolnj;
+       spf=pass (google.com: domain of kyleighgasper@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=kyleighgasper@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=danville.k12.in.us; s=google;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date;
+        bh=h2nO0OFIqjSzplKZiPiDsCkVLIpTomoxhdk/ngM+t6g=;
+        b=0HVoolnjHD4AE63vJ5euBa962UgsuBf1TOe+zEWXQrX2M4mQ3jhYOWjn4vl94Vf5VI
+         WDO+eHLJUgMhHk/LkV0SRRbHLJ6RkItoY/JD2qLfcTKgjiRseS1Ov8ERNCu9l43K74i2
+         k0aoEx03gz8IVqg8B5Mw/Qv066StOLqTb069ttlJsv3BuvMqqTkgPMDGERTWyfkl30O9
+         PdxZekcgkjBuad8eGP7n0wwD1tbRBvP/vc5nbBJKAlc/zyXGrKolwF0yjP1MZ/uAnoam
+         AM1YDqoEMUTCPkO3/IoQlr/NpVE88uR6asEw9szKJdAnElS/Hv0uh50fYIIVgEofs03K
+         hy7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date;
+        bh=h2nO0OFIqjSzplKZiPiDsCkVLIpTomoxhdk/ngM+t6g=;
+        b=QEU9SWBFE/wpE473puI6DemxjmTxuov2NZ8vdYB7urWY2X2nKeTCcyLtGYEKrE9qdu
+         48TMK8p0B/7yAGYoW9ZGU3qAqKu80mpKHKQ29pSROmOwdH7HgPCx/5LPwdpMelGxVpbs
+         92cYmitW4qieqURvP9OxuM2hfx753uH6K5ccFFAWhdhjKieeWxz/3gMFKwZLTr8umYco
+         NM1GslysFs5XDLzT3nL5KV4klyMj47y5ohqwAob1jEbjZuUMtWJJI1ma+9FVI6LNLzTC
+         DjMQa+u7OedYHlgMFfSFXppC+Qr8PRZ1rZ10lbvEYUukiNr9rZFuLLz2b6rrg4FsHA8p
+         jEJA==
+X-Gm-Message-State: ACgBeo0MBQ/zUfbkjvWnH27yVPRrUI1Jh/wcQvRCLELkiuExlGoj0saF
+	5kZh6LzJw0ZLx1VSro6AZQLXjknjoLBw7hNjK+yK9239Tk2gyw==
+X-Google-Smtp-Source: AA6agR55vx/37JBIcF3jkmH+vbgHE7FbdYI86OHxaAfbKWumjLd7scQyY3n2v7b5sk5fb3JUMIX080EYMPuJMBsVE6c=
+X-Received: by 2002:a17:907:9493:b0:73b:e605:f3b with SMTP id
+ dm19-20020a170907949300b0073be6050f3bmr23497818ejc.37.1663087235523; Tue, 13
+ Sep 2022 09:40:35 -0700 (PDT)
+MIME-Version: 1.0
+References: <CACB_P4CUnLB4=PBPLzj7BieuFNCTVnqbH=Xh=NJ_Xhseon0O9Q@mail.gmail.com>
+ <CAB7qOM0O8QmhgNJ-ywMm3-0ABkGBc3+snvjN1W5+n_bBb8YEVQ@mail.gmail.com> <CACB_P4CY3fZ=57DfRHhz_DzvukQRsw4YhD9DRxT7Uyjpxrts1g@mail.gmail.com>
+In-Reply-To: <CACB_P4CY3fZ=57DfRHhz_DzvukQRsw4YhD9DRxT7Uyjpxrts1g@mail.gmail.com>
+From: Kyleigh Gasper <kyleighgasper@danville.k12.in.us>
+Date: Tue, 13 Sep 2022 12:40:23 -0400
+Message-ID: <CAB7qOM0_eqTKO6qNGEGKYCHn-1M=C903nRunQ5gr+cPknOa05Q@mail.gmail.com>
+Subject: Re: To you
+To: Duel Mood <duelmood@danville.k12.in.us>
+Content-Type: multipart/alternative; boundary="000000000000e7847505e891ab4e"
+
+--000000000000e7847505e891ab4e
+Content-Type: text/plain; charset="UTF-8"
+
+Same to you!
+
+On Tue, Sep 13, 2022 at 9:18 AM Duel Mood <duelmood@danville.k12.in.us>
+wrote:
+
+> You're welcome! Have a great day!
+>
+>
+> On Tue, Sep 13, 2022 at 9:12 AM Kyleigh Gasper <
+> kyleighgasper@danville.k12.in.us> wrote:
+>
+>> Thank you, Duel!
+>>
+>> On Tue, Sep 13, 2022 at 8:36 AM Duel Mood <duelmood@danville.k12.in.us>
+>> wrote:
+>>
+>>> Happy birthday!
+>>>
+>>>
+>>> --
+>>> Duel M.
+>>> 10th grade
+>>> DCHS
+>>>
+>>
+>
+> --
+> -Duel M.
+>
+
+--000000000000e7847505e891ab4e
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Same to you!=C2=A0<br></div><br><div class=3D"gmail_quote"=
+><div dir=3D"ltr" class=3D"gmail_attr">On Tue, Sep 13, 2022 at 9:18 AM Duel=
+ Mood &lt;<a href=3D"mailto:duelmood@danville.k12.in.us">duelmood@danville.=
+k12.in.us</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=
+=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding=
+-left:1ex"><div dir=3D"ltr"><div class=3D"gmail_default" style=3D"font-fami=
+ly:&quot;comic sans ms&quot;,sans-serif"><div dir=3D"ltr"><div class=3D"gma=
+il_default"><div dir=3D"ltr"><div class=3D"gmail_default">You&#39;re welcom=
+e! Have a great day!</div><div><br></div></div></div></div></div></div><br>=
+<div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Tue, Se=
+p 13, 2022 at 9:12 AM Kyleigh Gasper &lt;<a href=3D"mailto:kyleighgasper@da=
+nville.k12.in.us" target=3D"_blank">kyleighgasper@danville.k12.in.us</a>&gt=
+; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
+ 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div di=
+r=3D"ltr">Thank=C2=A0you, Duel!</div><br><div class=3D"gmail_quote"><div di=
+r=3D"ltr" class=3D"gmail_attr">On Tue, Sep 13, 2022 at 8:36 AM Duel Mood &l=
+t;<a href=3D"mailto:duelmood@danville.k12.in.us" target=3D"_blank">duelmood=
+@danville.k12.in.us</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quot=
+e" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204)=
+;padding-left:1ex"><div dir=3D"ltr"><div class=3D"gmail_default" style=3D"f=
+ont-family:&quot;comic sans ms&quot;,sans-serif"><div dir=3D"ltr"><div clas=
+s=3D"gmail_default"><div dir=3D"ltr"><div class=3D"gmail_default"><div dir=
+=3D"ltr"><div class=3D"gmail_default"><div dir=3D"ltr"><div class=3D"gmail_=
+default">Happy birthday!</div></div></div></div></div><div><br></div><div><=
+br></div>-- <br><div dir=3D"ltr"><div dir=3D"ltr"><font face=3D"comic sans =
+ms, sans-serif" size=3D"1">Duel M.=C2=A0</font><div><font size=3D"1">10th g=
+rade</font></div><div><font size=3D"1">DCHS</font></div></div></div></div><=
+/div></div></div></div>
+</blockquote></div>
+</blockquote></div><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr"=
+><div dir=3D"ltr"><font face=3D"comic sans ms, sans-serif" size=3D"1">-Duel=
+ M.</font></div></div>
+</blockquote></div>
+
+--000000000000e7847505e891ab4e--

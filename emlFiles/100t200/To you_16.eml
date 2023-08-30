@@ -1,0 +1,108 @@
+Delivered-To: duelmood@danville.k12.in.us
+Received: by 2002:a05:7022:62a1:b0:5d:8a59:1f94 with SMTP id e33csp3230247dle;
+        Mon, 13 Feb 2023 06:20:22 -0800 (PST)
+X-Received: by 2002:a54:4492:0:b0:37a:f3bc:2430 with SMTP id v18-20020a544492000000b0037af3bc2430mr12138098oiv.2.1676298022651;
+        Mon, 13 Feb 2023 06:20:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1676298022; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Mv6mXnL13/4OEMLRfsRsxJ6kXPiTnOjhg6N92GMlBPGE1coA+bzl3+v2erVe6yyW7G
+         Y1Ht25EW431RZKlKu+CaPXvRw2DtCSQGLFK1eSqo8NkVxwHSKaApp4shmDTDAmfhPJKC
+         03D1qpK99/bFQK7VowOY1XUlX0zJivlKSwnXbsN7LlbqsBqTZrzUHdoHkH2Obh8ecZR/
+         HtII6vHnqR4knhodIOLOfrvOlTgPeWbOILGz6HhORMHYTdabhLsYmXI5PEwTzZBujLbe
+         YyPCpDNaiGEakmp7FmzXr1j2zq+IhDmSWNxXmog26EaILdrddYif9uZIpEKZoKMjYbsi
+         0ZLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=U6lY9u+9i40tlk3v/AakZaljceuentzKkn3emgCE4II=;
+        b=TGIOay6geO99qAJs4PbYQQIu9vaWvSG5xcZiYHetO8SBQeTttivLMLuePTZymcLnyC
+         m2QgHdH8bnukjBBtFNn3d+V4oHeXcH6I/wVY7YdcaFflB7y8VMqeU3ep0rN45H3grcrb
+         P4HHKJ41a4xZ4S0SOh297TW5uVtrzK9I0h9MMteWpl8647dUXk8cnqItAOXgYAqkaeIJ
+         04CwlQBw0CUopFX2/zowmh70/zvq2gx20tcmBleuKceVnxtjZVuX2ihbrqmYxRkrABcr
+         kcu+XJDt7l6EOK0IsCfYyTS8Wqitp2xkt2ecbsl1mAPmVL843OMXHujNjmMX4ElDUz7c
+         JiuQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=mrvsIhW5;
+       spf=pass (google.com: domain of idiazramirez@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=idiazramirez@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+Return-Path: <idiazramirez@danville.k12.in.us>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 18-20020aca2112000000b00364ce16f83fsor4700018oiz.171.2023.02.13.06.20.22
+        for <duelmood@danville.k12.in.us>
+        (Google Transport Security);
+        Mon, 13 Feb 2023 06:20:22 -0800 (PST)
+Received-SPF: pass (google.com: domain of idiazramirez@danville.k12.in.us designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@danville.k12.in.us header.s=google header.b=mrvsIhW5;
+       spf=pass (google.com: domain of idiazramirez@danville.k12.in.us designates 209.85.220.41 as permitted sender) smtp.mailfrom=idiazramirez@danville.k12.in.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=danville.k12.in.us
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=danville.k12.in.us; s=google;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=U6lY9u+9i40tlk3v/AakZaljceuentzKkn3emgCE4II=;
+        b=mrvsIhW5Ivg0yuf/uKmtIewYkoRhLJjFeDLvTR0QcXo2Efff3rmxwYFrV0Za8Nr+O2
+         pouRi+06GEGEdV8lJB1PaSvjCAY00s3bpVzfLo+Am7oTid0pHJjQhzK27BPRBR5w/uXD
+         rqcer5U8Si1kk6tweDS3485nBt9jno7w9XPL1H6sSsrPGzqdBRV5bvKSl0ehN/zDfG5+
+         YuQQDYZwiz49+xvMWFBkG7i0mOIzp1g55K6LWrb9rdr/EcMxxrKNRR6DobxRENrX/iIY
+         egld9cbfaUhB+3sAsETbr1WpQPASFxlOiHMdpKrfrxk4g6d6mu9J+34fDVpoyuv5RIfH
+         FElw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=U6lY9u+9i40tlk3v/AakZaljceuentzKkn3emgCE4II=;
+        b=7c9OUmsWUW+PqneMbDQU2hM4T2nb4ZAB8k0AZNcPoH4uxcGXtG+MJMW+4UQgrh/Bon
+         FBSQECG4N1NnKr0zAiYPhLWX1OZ/eTojjxAD9CTBjxwGsnSRQ5LbbXgOk/7TYoYAk4F+
+         AI/JCZdHvOXt0XOF9Y3tuD4pdxj5kTmtx3iE19IOVaFlF13BDXmCv9LqQk57NFV25PK7
+         vXSHWfK1wwKU0rJgjj8k+Ls1bz/6eA7Z64HNYrImbr/81n318/aWtso4dANMvKKZsrvW
+         Kphwd+SHN6yCq9S8LGc/77zx7XHZEGBmuxtLqvHSg3uOLxIORpOUmoZuSBT6iwPEbZlF
+         UcqQ==
+X-Gm-Message-State: AO0yUKVx+N8ht5+RO/Jf1UlWR76BJtL2Mbc1foWbtAQMTtFNd/8sP8Cr
+	u2CZWow/oiCXkQ9sCwPF9Bt0FcDFyelondqVdzP0U7xZRWooUP8w
+X-Google-Smtp-Source: AK7set9tj2ZbPBI2qPcCpUE7Zi9Q3qX/Qj0DoGoSxyp5keuMNkkXTKgdYcX6F3MJEJ8FPHZ8WzMjJepObpj4eHFDJsQ=
+X-Received: by 2002:a05:6808:130d:b0:37d:76c4:dc56 with SMTP id
+ y13-20020a056808130d00b0037d76c4dc56mr783636oiv.104.1676298022061; Mon, 13
+ Feb 2023 06:20:22 -0800 (PST)
+MIME-Version: 1.0
+References: <CACB_P4AMzUDZ1YnSRA-JiBh9T+aiTQk3=6vdRgyWhm7c2kFrbA@mail.gmail.com>
+ <CAMSOVe7fVtV34FR+z=m9S-4Fqj+kCEd=0X+PMjZDQge5m9bzWw@mail.gmail.com> <CACB_P4BjgjVzc4Rmhw9XCTKY4D48EULaF1yRsw250g-h0ttasw@mail.gmail.com>
+In-Reply-To: <CACB_P4BjgjVzc4Rmhw9XCTKY4D48EULaF1yRsw250g-h0ttasw@mail.gmail.com>
+From: Ivan DiazRamirez <idiazramirez@danville.k12.in.us>
+Date: Mon, 13 Feb 2023 09:20:11 -0500
+Message-ID: <CAMSOVe5oM0gRzqaR7s98dZJE=bat1B-zyLXG-GbHpnif43jh1w@mail.gmail.com>
+Subject: Re: To you
+To: Duel Mood <duelmood@danville.k12.in.us>
+Content-Type: multipart/alternative; boundary="00000000000024a3f405f4958c5f"
+
+--00000000000024a3f405f4958c5f
+Content-Type: text/plain; charset="UTF-8"
+
+Same to you!
+
+On Mon, Feb 13, 2023 at 9:19 AM Duel Mood <duelmood@danville.k12.in.us>
+wrote:
+
+> You're welcome! Have a great day!
+> --
+> Duel M.
+> 10th grade
+> DCHS
+>
+
+--00000000000024a3f405f4958c5f
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Same to you!=C2=A0<br></div><br><div class=3D"gmail_quote"=
+><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Feb 13, 2023 at 9:19 AM Duel=
+ Mood &lt;<a href=3D"mailto:duelmood@danville.k12.in.us">duelmood@danville.=
+k12.in.us</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=
+=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding=
+-left:1ex"><div dir=3D"auto">You&#39;re welcome! Have a great day!</div>-- =
+<br><div dir=3D"ltr"><div dir=3D"ltr"><font face=3D"comic sans ms, sans-ser=
+if" size=3D"1">Duel M.=C2=A0</font><div><font size=3D"1">10th grade</font><=
+/div><div><font size=3D"1">DCHS</font></div></div></div>
+</blockquote></div>
+
+--00000000000024a3f405f4958c5f--
