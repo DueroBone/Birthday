@@ -6,7 +6,9 @@ import ssl
 import sys
 import validators
 from bs4 import BeautifulSoup
-from datetime import datetime, date
+from datetime import datetime, date        
+import importFiles
+
 
 login = open("Login", "r").read().splitlines()
 
@@ -83,7 +85,7 @@ def findTodayPeople(dateIn, peoplesList):
     return peoplesList[daysSinceStart]
 
 
-def getPeopleWeb():
+def getPeopleWeb(data):
     return findTodayPeople(formatWebsiteDate(data), splitPeople(formatWebsitePeople(data)))
 
 
@@ -127,5 +129,10 @@ DCHS
 
 
 # Where the code actually runs
-data = collectWebsite()
-emailPeople(convertToEmails(getPeopleWeb()))
+if __name__ == "__main__":
+    if not os.path.exists("Database.txt"):
+        if not os.path.isdir("emlFiles"):
+            importFiles.importFiles()
+    # check for argv, if exists, update db with link, if not, run headless
+    site = collectWebsite()
+    emailPeople(convertToEmails(getPeopleWeb(site)))
