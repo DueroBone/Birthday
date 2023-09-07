@@ -132,7 +132,7 @@ DCHS
 if __name__ == "__main__":
     if not os.path.exists("Database.txt"):
         if not os.path.isdir("emlFiles"):
-            importFiles.importFiles()
+            importFiles.runAll()
     # check for argv, if exists, update db with link, if not, run headless
     site = collectWebsite()
     emailPeople(convertToEmails(getPeopleWeb(site)))
