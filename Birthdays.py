@@ -15,7 +15,6 @@ def Quit(input = None):
     print(input) if input != None else print("Canceling...")
     sys.exit()
 
-
 def convertToEmails(inputE: list[str]):
     emailsList: list[str] = []
     for person in inputE:
@@ -34,11 +33,11 @@ def convertToEmails(inputE: list[str]):
     return emailsList
 
 
-def gettoday():
+def gettoday() -> list[str]:
     for data in msf.database:
         if (datetime.today().date() - data[0]).days % 365 == 0:  # type: ignore
-            return data[1]
-    return "None"
+            return data[1] # type: ignore
+    return ["None"]
 
 
 def emailPeople(people: list[str]):
@@ -63,9 +62,11 @@ def emailPeople(people: list[str]):
 if __name__ == "__main__":
     updateZip()
     if isHeadless:
-        emails:list[str] = gettoday() # type: ignore
+        emails = gettoday() 
     else:
-        # update database
+        # update database    
+        # TODO: add a way to add birthdays
         emails = convertToEmails(gatherWebsite())
     emailPeople(emails)
     updateZip()
+    Quit("Done")

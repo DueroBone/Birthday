@@ -15,10 +15,11 @@ except:
 regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
 
 
-# for original parsing of .eml files || left in for sake of studying
 def _getPass():
     return msf.pass1.strip().join(msf.pass2.strip()).encode('utf-8')
 
+
+# for original parsing of .eml files || left in for sake of studying
 
 def _getFiles():
     folder = "emlFiles"
@@ -30,11 +31,11 @@ def _stripEmailsFiles():
     for daysEmail in _getFiles():
         if not daysEmail["Bcc"] and not daysEmail["To"]:
             continue
-        allAddresses = re.findall(regex, (daysEmail["Bcc"] + daysEmail["To"] if daysEmail["Bcc"] 
+        allAddresses = re.findall(regex, (daysEmail["Bcc"] + daysEmail["To"] if daysEmail["Bcc"]
                                   and daysEmail["To"] else daysEmail["Bcc"] if daysEmail["Bcc"] else daysEmail["To"]))
         mailDate = daysEmail["Date"]
 
-        if msf.var8 not in allAddresses: 
+        if msf.var8 not in allAddresses:
             output += str([str(datetime.strptime(str(mailDate).replace(" (PDT)", ""), "%a, %d %b %Y %H:%M:%S %z").date()),
                           str(json.dumps(allAddresses))]).replace("\'", "\"") + "\n"  # type: ignore
     return output
@@ -70,12 +71,13 @@ def _decryptFiles():
 
 
 def _updateSecrets():
-    
+
     os.remove("Secrets.zip") if os.path.exists("Secrets.zip") else None
     zf = pyzipper.AESZipFile(
         "Secrets.zip", "x", compression=pyzipper.ZIP_LZMA, encryption=pyzipper.WZ_AES)
     zf.setpassword(_getPass())
     zf.write("mySecretsFile.py")
+    zf.write("Database.txt")
     zf.close()
 
 
